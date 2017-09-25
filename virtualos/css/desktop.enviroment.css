@@ -1,0 +1,416 @@
+#WorkspaceDiv{
+	position:fixed;
+	top:0px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	width:100%;
+	height:100%;
+	overflow:hidden;
+}
+
+#DesktopDiv{
+	position:fixed;
+	top:0px;
+	left:0px;
+	right:0px;
+	bottom:35px;
+	overflow:hidden;
+	padding:5px;
+}
+#DesktopContainer{
+	position:absolute;
+	left:1px;bottom:1px;right:1px;left:1px; 
+	width: 100%; height:100%; 
+	flex-grow: 1;
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	margin-right: 200px;;
+	flex-direction: column;
+	align-content: flex-start;
+	overflow:hidden;	
+}
+
+.DesktopIconBox{
+	position: relative;
+	width: 70px;
+	height: 86px;
+	text-align:center;
+	
+	
+	opacity:0.75;
+	margin: 0 10px;
+
+}
+
+.DesktopIconImgBox{
+	cursor: pointer;
+}
+
+.DesktopIconTextBox{
+	position:relative;
+	border:1px dotted transparent;
+	left: 1px;
+	right:1px;
+	line-height:1em;
+	max-height: 2em;
+	font-size:13px;
+	font-family: arial;
+	text-shadow: 2px 2px 4px rgba(70,70,70,0.5);
+	color: rgba(0,0,0,0.8);
+	word-wrap: break-word;	
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.DesktopIconTextBox input{
+	outline:none;
+	border:none;
+	background-color:rgba(0,0,200,0.1);
+	font-style: italic;
+	width:100%;
+	height:1em;
+	line-height:1em;
+	font-size:13px;
+	font-family: arial;
+	text-shadow: 2px 2px 4px rgba(70,70,70,0.5);
+	display:none;
+}
+
+.DesktopIconBox:hover .DesktopIconTextBox{
+	border:1px dotted rgba(0,0,0,0.5);
+	border-radius:3px;
+	max-height: 4em;
+	background-color: rgba(50,50,255,0.1);
+}
+
+.DesktopIconBox:hover{
+	opacity:1;
+}
+
+.DesktopIconBox:active{
+	text-shadow: 2px 2px 4px rgba(70,70,70,0.9);
+	color: rgba(0,0,0,0.8);
+	
+}
+
+#SM_AboutMe img{
+	outline:none;
+	border-radius:32px;
+    -webkit-border-radius:32px;
+   	-moz-border-radius:32px;
+   	-ms-border-radius:32px;
+	opacity: 0.8;
+	border:none;
+}
+#SM_AboutMe:hover > #SM_AboutMeIcon { 
+	opacity:1;
+	-moz-box-shadow: 0px 0px 14px rgba(255,0,0,1);
+	-webkit-box-shadow: 0px 0px 14px rgba(255,0,0,1);
+	box-shadow: 0px 0px 14px rgba(255,0,0,1);
+
+}
+
+#SM_Terminal img{
+	outline:none;
+	border-radius:32px;
+	-webkit-border-radius:32px;
+	-moz-border-radius:32px;
+	-ms-border-radius:32px;
+	opacity: 0.8;
+	border:none;
+}
+#SM_Terminal:hover > #SM_TerminalIcon { 
+	opacity:1;
+	-moz-box-shadow: 0px 0px 14px rgba(255,0,0,1);
+	-webkit-box-shadow: 0px 0px 14px rgba(255,0,0,1);
+	box-shadow: 0px 0px 14px rgba(255,0,0,1);
+}
+table, td, tr {padding:0;}
+#TaskBar table{
+	font-size:14px;
+	font-family:arial;
+	color:#fff;
+	border-collapse:collapse;
+	white-space: nowrap;
+	width:100%;
+}
+
+#TaskBar table td:nth-child(1){
+	text-align: left; 
+}
+#TaskBar table td:nth-child(2){
+	float:left;
+	display: table;
+	text-align: left; 
+	table-layout: fixed;  
+	width: 100%;
+	overflow:hidden;
+}
+#TaskBar table td:nth-child(3){
+	text-align:right; white-space:nowrap;
+}
+
+#TaskBar{
+	padding:0;
+	position: absolute; 
+	bottom:2px;
+	height:34px;
+	left:0px;
+	right:0px;
+	border-top: 1px solid rgba(150,150,150,150.8);
+	z-index:2;
+	line-height:34px;
+	background-color:rgba(0,0,0,0.8);
+    -webkit-user-select: none; /* Chrome, Opera, Safari */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */	
+	vertical-align:middle;
+	display:inline-block;
+}
+
+.TaskBar_TaskGroup_TaskList{
+	position: absolute;
+	display:none;
+	bottom: 38px;
+	left:246px;
+	width: 200px;
+	background-color: rgba(0,0,0,0.8);
+	font-family:arial;
+	font-size:12px;	
+	line-height:30px;
+	padding: 5px 5px 3px 5px;
+	margin: 0;
+	border-top: 1px solid rgba(250,250,250,0.5);
+	border-left: 1px solid rgba(250,250,250,0.5);
+	border-right: 1px solid rgba(250,250,250,0.5);	
+	border-radius: 5px 5px 0 0;
+}
+
+.TaskBar_TaskGroup_TaskList ul{
+	text-decoration: none;
+	color: #fff;
+	padding: 0;
+	margin: 0;
+
+	
+}
+
+.TaskBar_TaskGroup_TaskList li{
+	text-decoration: none;
+	padding: 0;
+	margin: 0;
+	color: #fff;
+	width: 100%;
+	white-space:nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	cursor:pointer;
+}
+
+.TaskBar_TaskGroup_TaskList li img{
+	vertical-align:middle;
+	width:20px;
+	height:20px;
+}
+
+.TaskBar_TaskGroupButton{
+	position:relative;
+	width: 200px;
+	height:30px;
+	margin-top:	2px;
+	margin-left: 0px;
+	vertical-align: middle;
+	display:inline-block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-family:arial;
+	font-size:12px;
+	border: 1px solid #fff;
+	color: #fff;
+	cursor:pointer;
+}
+.TaskBar_TaskGroupButton img{
+	width: 24px;
+	height: 24px;
+	vertical-align: middle;
+}
+
+#TaskBarSeparator{
+	position: static;
+	bottom: 0px;
+	line-height: 34px;
+	width: 1px;
+	border: 1px dashed #eee;
+	margin: 0 5px;
+}
+
+.TaskBarHighlightable{
+	position: static;
+	line-height:30px;
+	padding:0 5px;
+	height:30px;
+	border: 1px dotted rgba(230,230,230,0);
+	display:inline-block;
+	border-radius:2px;
+    -webkit-border-radius:2px;
+    -moz-border-radius:2px;
+    -ms-border-radius:2px;
+}
+.TaskBarHighlightable:hover{
+	border: 1px dotted rgba(150,150,150,0.8);
+	background: -webkit-linear-gradient(rgba(50,50,50,0.8), rgba(100,100,100,0.8), rgba(50,50,50,0.8));
+	background: -o-linear-gradient(rgba(50,50,50,0.8), rgba(100,100,100,0.8), rgba(50,50,50,0.8)); 
+	background: -moz-linear-gradient(rgba(50,50,50,0.8), rgba(100,100,100,0.8), rgba(50,50,50,0.8)); 
+	background: linear-gradient(rgba(50,50,50,0.8), rgba(100,100,100,0.8), rgba(50,50,50,0.8));
+}
+
+.TaskBarHighlightable:active{
+	border: 1px solid rgba(230,230,230,0.8);
+	background: -webkit-linear-gradient(rgba(100,100,100,0.8), rgba(50,50,50,0.8), rgba(100,100,100,0.8)); 
+	background: -o-linear-gradient(rgba(100,100,100,0.8), rgba(50,50,50,0.8), rgba(100,100,100,0.8));
+	background: -moz-linear-gradient(rgba(100,100,100,0.8), rgba(50,50,50,0.8), rgba(100,100,100,0.8)); 
+	background: linear-gradient(rgba(100,100,100,0.8), rgba(50,50,50,0.8), rgba(100,100,100,0.8)); 
+}
+
+.TaskBarHighlighted, .TaskBarHighlighted a{
+	text-shadow: 0 0 5px rgba(255,255,100,0.5), 0 0 10px rgba(255,255,100,0.5), 0 0 20px rgba(255,255,100,0.75);
+}
+
+#TaskBar_StartIcon{
+	position:relative;
+	height:32px;
+	width:32px;
+	background-image:url("../img/startmenu/home.png");
+	background-size: 28px 28px;
+	background-repeat: no-repeat;
+	display:inline-block;
+	vertical-align:middle;
+}
+#TaskBar_StartMenuDiv{
+	position: absolute; 
+	bottom:35px;
+	height:400px;
+	left:0px;
+	width:350px;
+	border-top: 1px solid rgba(200,200,200,0.8);
+	border-right: 1px solid rgba(200,200,200,0.8);
+	color:#fff;
+	font-size:14px;
+	font-family:arial;
+	line-height:24px;
+	background-color:rgba(0,0,0,0.8);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 	
+	vertical-align:middle;
+	display:none;
+}
+#TaskBar_StartMenuHeadLineDiv{
+	position: absolute; 
+	top:5px;
+	left:10px;
+	right:10px;
+	font-weight:bold;
+	vertical-align:middle;
+	font-family:Courier;
+	background: -webkit-linear-gradient(rgba(200,200,200,0.8), rgba(50,50,50,0.8));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+#TaskBar_StartMenuItemListDiv{
+	position: absolute; 
+	top:35px;
+	left:3px;
+	bottom:5px;
+	width:200px;
+	border: 1px solid rgba(0,0,0,0.8);
+	color: rgba(20,20,20,0.8);;
+	font-size:14px;
+	font-family: Courier;
+	line-height:24px;
+	background: -webkit-linear-gradient(rgba(220,255,220,0.8), rgba(255,255,255,0.8));
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 	
+	vertical-align:middle;
+	display:block;
+	overflow-y:auto;
+	overflow-x:hidden;
+}
+#TaskBar_StartMenuItemListDiv ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+#TaskBar_StartMenuItemListDiv ul li{
+	padding: 0 10px;
+	cursor: pointer;
+	vertical-align: middle;
+	text-decoration: none;
+}
+#TaskBar_StartMenuItemListDiv img{
+	vertical-align: middle;
+	border:none;
+}
+#TaskBar_StartMenuItemListDiv li:hover{
+	background-color:rgba(0,0,100,0.3);
+}
+
+#TaskBar_StartMenuCatListDiv{
+	position: absolute; 
+	top:35px;
+	left:205px;
+	bottom:5px;
+	width:142px;
+	border: 1px solid rgba(0,0,0,0.8);
+	color:rgba(230,230,230,0.8);
+	font-size:14px;
+	font-family: arial;
+	line-height:24px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 	
+	vertical-align:middle;
+	display:block;
+	overflow-y:auto;
+	overflow-x:hidden;
+}
+
+#TaskBar_StartMenuCatListDiv img{
+	vertical-align: middle;
+	border:none;
+}
+
+#TaskBar_StartMenuCatListDiv ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+#TaskBar_StartMenuCatListDiv li{
+	padding: 0 10px;
+	cursor: pointer;
+}
+#TaskBar_StartMenuCatListDiv li:hover{
+	background: -webkit-linear-gradient(rgba(50,50,50,0.8), rgba(70,70,70,0.8), rgba(50,50,50,0.8));
+	background: -o-linear-gradient(rgba(50,50,50,0.8), rgba(70,70,70,0.8), rgba(50,50,50,0.8)); 
+	background: -moz-linear-gradient(rgba(50,50,50,0.8), rgba(70,70,70,0.8), rgba(70,70,70,0.8)); 
+	background: linear-gradient(rgba(50,50,50,0.8), rgba(70,70,70,0.8), rgba(50,50,50,0.8));
+}
+#TaskBar_StartMenuCatListDiv li:active{
+	background: -webkit-linear-gradient(rgba(70,70,70,0.8), rgba(50,50,50,0.8), rgba(70,70,70,0.8));
+	background: -o-linear-gradient(rgba(70,70,70,0.8), rgba(50,50,50,0.8), rgba(70,70,70,0.8)); 
+	background: -moz-linear-gradient(rgba(70,70,70,0.8), rgba(50,50,50,0.8), rgba(70,70,70,0.8)); 
+	background: linear-gradient(rgba(70,70,70,0.8), rgba(50,50,50,0.8), rgba(70,70,70,0.8));
+}
+.TaskBar_SelectStartMenuCat{
+	background: -webkit-linear-gradient(rgba(70,70,70,0.8), rgba(50,50,50,0.8), rgba(70,70,70,0.8));
+	background: -o-linear-gradient(rgba(70,70,70,0.8), rgba(50,50,50,0.8), rgba(70,70,70,0.8)); 
+	background: -moz-linear-gradient(rgba(70,70,70,0.8), rgba(50,50,50,0.8), rgba(70,70,70,0.8)); 
+	background: linear-gradient(rgba(70,70,70,0.8), rgba(50,50,50,0.8), rgba(70,70,70,0.8));
+}

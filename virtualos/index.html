@@ -1,0 +1,458 @@
+<html>
+<head>
+	<title> My Resume Page </title>
+	<script src="js/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="./css/window.style.css?k=12">
+	<link rel="stylesheet" type="text/css" href="./css/desktop.enviroment.css?k=12">
+	<link rel="stylesheet" type="text/css" href="./css/for.custom.pages.css">
+	<link rel="stylesheet" type="text/css" href="./css/resume.css">
+	<link rel="stylesheet" type="text/css" href="./css/used.windows.css?p=12">
+<!--	<link rel="stylesheet" type="text/css" href="./css/shapes.with.css.css?h=33773"> -->
+	
+<style>
+@media screen and (max-width: 800px) {
+	body{
+		min-width:800px;	
+	}
+}
+@media screen and (max-width: 900px) {
+	body{
+		min-width:900px;	
+	}
+}
+@media screen and (min-width: 900px) {
+	body{
+		min-width:1024px;	
+	}
+}
+@media screen and (max-height: 400px) {
+	body{
+		min-height:400px;	
+	}
+}
+@media screen and (max-height: 500px) {
+	body{
+		min-height:500px;	
+	}
+}
+@media screen and (max-height: 600px) {
+	body{
+		min-height:600px;	
+	}
+}
+@media screen and (min-height: 600px) {
+	body{
+		min-height:720px;	
+	}
+}
+
+body{
+	min-width:1024px;
+	min-height:720px;
+}
+#backgroundImg{
+	position:fixed;
+	top:0px;left:0px;right:0px;bottom:0px;
+	background-image:url('./img/bg.jpg');
+	background-size: cover;
+	z-index:-1;
+	-webkit-filter: blur(2px); 
+    filter: blur(2px);
+}
+
+</style>
+	</head>
+<body>
+<div id="WorkspaceDiv">
+	<div id="backgroundImg"></div>
+	<div id="DesktopDiv">
+		<div id="DesktopContainer" class="context-menu-one btn btn-neutral"></div>
+		<div id="ProfilPicDiv">
+			<div id="ProfileEffectDiv" class="ProfileEffectClass">
+				<div id="EffectCircleDiv" style="top:-3px;left:50%;"> </div>
+				<div id="EffectCircleDiv" style="bottom:-3px;left:50%;"> </div>
+				<div id="EffectCircleDiv" style="top:50%;left:-3px;"> </div>
+				<div id="EffectCircleDiv" style="top:50%;right:-3px;"> </div>
+			</div>
+			<img src="./img/me.jpg" class="MyBubble" alt="Me">
+			<div id="MyBubbleText">
+				<span class="BBF">Name:</span> Varga Zsolt<br>
+				<span class="BBF">Nickname:</span> Shadowvzs<br>
+				<span class="BBF">Age:</span> <span id="MyCurrentAge">30</span><br>
+				<span class="BBF">Email:</span> shadowvzs@hotmail.com<br>
+				<span class="BBF">Base:</span> HTML, PHP, CSS, JS, MySQL<br>
+				<span class="BBF">Subs:</span> JQuery<br>
+				<span class="BBF">Tools:</span> Github, Ubuntu server<br>
+				<span class="BBF">Interest:</span> NodeJS<br>
+			</div>
+		</div>
+	<!--
+		<div id="HTMLViewerWindow">
+			<div class="WindowHead_Light4"><span style="text-align:left;"><b>HTML Viewer - <span id='HTMLViewerTarget'></span></b></span><div style="right:26px;" class="WindowMiniButton_Light1" onclick="$(this).parent().parent().fadeOut();">&#95;</div><div class="WindowMiniButton_Light1" onclick="$(this).parent().parent().fadeOut();resume.Sound(1);">&#10006;</div></div>
+			<div id="HTMLViewerContent"> </div>		
+		</div>
+		-->
+		<!--
+		<div id="FileExplorerWindow">
+			<div class="WindowHead_Light4"><span style="text-align:left;"><b>File Explorer</b></span><div style="right:26px;" class="WindowMiniButton_Light1" onclick="$(this).parent().parent().fadeOut();">&#95;</div><div class="WindowMiniButton_Light1" onclick="$(this).parent().parent().fadeOut();resume.Sound(1);">&#10006;</div></div>
+			<div id="FileExplorerAddressBarDiv">
+				<span onclick="resume.FileExplorerNav($(this));" id="FileExplorerGoFolderRoot"><img src="./img/app/home.png"></span>
+				<span onclick="resume.FileExplorerNav($(this));" id="FileExplorerGoUp"><img src="./img/app/up.png"></span>
+				 //data-path='{"ItemPath":"0","from":"folder"}' data-path='{"ItemPath":"0","from":"folder"}'
+					//onclick="resume.Execute($(this).data('path'));resume.Sound(0);"
+					//onclick="resume.Execute($(this).data('path'));alert(1);resume.Sound(0);"
+				
+				<input type="text" id="FileExplorerAddressBar" onfocus="this.blur()" readonly value="./asdasaSAD">
+			</div>
+			
+			<div id="FileExplorerContent"> </div>		
+		</div>
+		-->
+		
+		<!--
+		<div id="ProfilPicDiv">
+			<div id="ProfileEffectDiv" class="ProfileEffectClass">
+				<div id="EffectCircleDiv" style="top:-3px;left:50%;"> </div>
+				<div id="EffectCircleDiv" style="bottom:-3px;left:50%;"> </div>
+				<div id="EffectCircleDiv" style="top:50%;left:-3px;"> </div>
+				<div id="EffectCircleDiv" style="top:50%;right:-3px;"> </div>
+			</div>
+			<img src="./img/me.jpg" class="MyBubble" alt="Me">
+			<div id="MyBubbleText">
+				<span class="BBF">Name:</span> Varga Zsolt<br>
+				<span class="BBF">Nickname:</span> Shadowvzs<br>
+				<span class="BBF">Age:</span> <span id="MyCurrentAge">30</span><br>
+				<span class="BBF">Email:</span> shadowvzs@hotmail.com<br>
+				<span class="BBF">Base:</span> HTML, PHP, CSS, JS, MySQL<br>
+				<span class="BBF">Subs:</span> JQuery<br>
+				<span class="BBF">Tools:</span> Github, Ubuntu server<br>
+				<span class="BBF">Interest:</span> NodeJS<br>
+			</div>
+		</div>
+
+		<div id="TerminalDiv">
+			<div class="WindowHead_Light3"><span style="text-align:left;"><b>Terminal</b></span><div class="WindowMinimize_Light1" onclick="$('#TerminalDiv').fadeOut();">&#95;</div><div class="WindowClose_Light1" onclick="$('#TerminalDiv').fadeOut();resume.Sound(1);">&#10006;</div></div>
+			<div id="TerminalBackground"></div>
+			<div id="TerminalContent"></div>
+			<div id="TerminalInputDiv">root@root-desktop:~$<div id="TerminalInputHolder"><input type="text" id="TerminalInput" value="" onkeydown="resume.NewTeminalLine(event);"></div></div>
+		</div>
+		-->
+	</div>
+	<div id="TaskBar_TaskGroup_TaskList_Container">		<!-- here coming the task lists in task groups, how much button on taskbar, that much task list (ul li) --> </div>
+
+	<div id="TaskBar">
+		<table>
+		<tr><td>
+			<div class="TaskBarHighlightable" onclick="$('#TaskBar_StartMenuDiv').fadeToggle();resume.StartMenuUp=true;resume.Sound(0);"><div id="TaskBar_StartIcon"></div> Start </div>
+			<span id="TaskBarSeparator"></span> 
+			<a title="Show/Hide my profile"><div class="TaskBarHighlightable" id="SM_AboutMe" onclick="$('#ProfilPicDiv').fadeToggle();resume.Sound(0);" style="vertical-align:middle;display:inline-block;"><img src="./img/startmenu/mini_me.jpg" id="SM_AboutMeIcon"></div></a> 
+			<a title="Show/Hide terminal"><div class="TaskBarHighlightable" id="SM_Terminal" onclick="$('#TerminalDiv').fadeToggle();$('#TerminalInput').focus();resume.Sound(0);" style="vertical-align:middle;display:inline-block;"><img src="./img/startmenu/terminal.png" id="SM_TerminalIcon"></div></a> 
+			<a title="Turn On/Off sound effects"><div class="TaskBarHighlightable" id="SM_Sound" onclick="resume.SoundToggle();resume.Sound(0);" style="vertical-align:middle;display:inline-block;"><img src="./img/startmenu/soundon.png" id="SM_SoundIcon"></div></a> 
+			<span id="TaskBarSeparator"></span> 
+		</td><td> <!-- here put jQuery the app buttons in taskbar -->
+		</td><td>
+		<div id="TaskBarRightSide">
+			<div class="TaskBarHighlightable" id="TaskTimeDate" onmouseover="$('#TimeDateTooltip').fadeIn();" onmouseleave="$('#TimeDateTooltip').fadeOut();"> 00:00</div>
+		</div>
+		</td></tr></table>
+	</div>
+	
+	<div id="TaskBar_StartMenuDiv" onmouseenter="if (resume.StartMenuUp){resume.MouseInStartMenu=true;};" onmouseleave="if (resume.StartMenuUp){resume.MouseInStartMenu=false;};">
+		<div id="TaskBar_StartMenuHeadLineDiv"><span>Welcome on board!</span></div>
+		<div id="TaskBar_StartMenuItemListDiv">
+			<!--  here will be the item list for start menu added by jquery -->
+		</div>
+		<div id="TaskBar_StartMenuCatListDiv">
+			<!--  here will be the item category list for start menu added by jquery -->
+		</div>		
+	</div>
+	<div id="TimeDateTooltip">
+		<span id="TooltipTime"></span> <span id="TooltipTimeZone" style="font-family:arial;font-size:10px;"></span><br>
+		<span id="TooltipDate"></span><br>
+	</div>
+</div>
+<script>
+
+	/*
+	//this is a array sort after a class from object
+	function dynamicSort(property) {
+		var sortOrder = 1;
+		if(property[0] === "-") {
+			sortOrder = -1;
+			property = property.substr(1);
+		}
+		return function (a,b) {
+			var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+			return result * sortOrder;
+		}
+	}
+	
+	obj.sort(dynamicSort("objclass"));
+	*/
+	
+	
+	$(document).ready(function(){
+	
+		/*
+		$.ajax({
+			url: 'https://www.codeschool.com/users/shadowvzs.json',
+			dataType: 'jsonp',
+			success: function(response) {
+				alert(JSON.stringify(response.courses.completed));
+			}
+		});
+
+		*/	
+		/*
+			$.getJSON("./page/git.sh", function(result){
+				alert(JSON.stringify(result));
+				alert(result.text[0][0]);
+			});		
+		*/
+		resume.SystemInit();
+		$(document).on("click",function(event) {
+			var dv="#TaskBar_StartMenuDiv";
+			
+			if ((resume.StartMenuUp)&&($(dv).css('opacity') != 0)&&(!resume.MouseInStartMenu)){
+				$(dv).fadeOut();
+				resume.StartMenuUp=false;
+			}
+			
+			if ((resume.Apps.lastApp.popUp===true)&&(event.target.id!="taskButtonLink")){//
+			//alert(event.target.id);
+			//alert($(event.target).parent().id);
+				resume.Apps.lastApp.popUp=false;
+				$("#tsk_list_"+resume.Apps.lastApp.id).hide();
+			}
+			
+			
+		});		
+	});
+
+	var resume={
+		SelStartMenuCat:"",
+		MouseInStartMenu:false,
+		StartMenuUp:false,
+		Database:[],
+		Apps:{},
+		RunningApps:[],
+		FExtension:{},
+		Desktop:"DesktopContainer",
+		SoundOn:false,
+		Sounds:[(new Audio("./mp3/click.mp3")), (new Audio("./mp3/close.mp3"))],
+		Sound:function(i){
+			if (resume.SoundOn){
+				resume.Sounds[i].play();
+			}
+			//resume.Sounds[i].volume = 0.2; 
+		},
+		startClock:function () {
+			var time = new Date();
+			var out=(
+			("0" + time.getHours()).slice(-2)   + ":" + 
+			("0" + time.getMinutes()).slice(-2) + ":" + 
+			("0" + time.getSeconds()).slice(-2));
+			$("#TaskTimeDate").text(out);
+			$("#TooltipTime").text(out);
+			t = setTimeout(function() {
+				resume.startClock()
+			}, 1000);
+		},
+		setTooltipDate: function (){
+			var time = new Date();
+			var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+			var months = ["January","February","March","April","May","June","July","August", "September", "October", "November", "December"];
+			var out = time.getFullYear()+" "+months[time.getMonth()]+" "+time.getDate()+" ("+days[time.getDay()]+")";
+			
+			var TimeZoneDiff=time.getTimezoneOffset();
+			TimeZoneDiff=Math.round(TimeZoneDiff/60);
+			TimeZoneDiff>0 ? TimeZoneDiff="-"+TimeZoneDiff : TimeZoneDiff="+"+(TimeZoneDiff*-1)
+			
+			$("#TooltipTimeZone").text(" (GMT "+TimeZoneDiff+")");
+			$("#TooltipDate").text(out);
+		},
+		GetDateFromTimestamp: function(tstamp){
+			var d=new Date(tstamp*1000);
+			return (d.getFullYear()+". "+("0" +(d.getMonth()+1)).slice(-2)+". "+("0" +(d.getDay()+1)).slice(-2)+".  "+("0" + d.getHours()).slice(-2)+":"+("0" + d.getMinutes()).slice(-2)+":"+("0" + d.getSeconds()).slice(-2));
+		},
+		SelectStartMenuCat:function (id){
+			if (id!=resume.SelStartMenuCat){
+				var s;
+				if (resume.SelStartMenuCat != ""){
+					s="#"+resume.SelStartMenuCat;
+					$(s).css("display", "none");
+					$(s+"_MC").removeClass("TaskBar_SelectStartMenuCat");
+				}
+				resume.SelStartMenuCat=id;
+				s="#"+id;
+				$(s+"_MC").addClass("TaskBar_SelectStartMenuCat");
+				$(s).css("display", "block");
+			}
+		},	
+		LoadApps:function(){
+			$.ajax({
+				url: './db/app.js',
+				dataType: 'script',
+				success: function (response){}
+			});	
+			
+		},
+		LoadFileExtensionList:function(){
+			$.getJSON("./db/f_ext.json", function(result){
+				resume.FExtension=result;
+			});
+		},		
+		
+		LoadFileSystem:function(){
+			$.getJSON("./db/vfs.json", function(result){
+				resume.Database=result.child;
+				$("#TaskBar_StartMenuCatListDiv").empty();
+				$("#DesktopContainer").empty();
+				$("#TaskBar_StartMenuItemListDiv").empty();
+				$("#TaskBar_StartMenuCatListDiv").append("<ul></ul>");
+				var dv=$("#TaskBar_StartMenuCatListDiv").find("ul");
+				var sd=$("#TaskBar_StartMenuItemListDiv");
+				var CountedFolders=result.child.length;
+				var CountedFiles, obj, showThisList=true;
+				for (var i=0;i<CountedFolders;i++){
+					obj=result.child[i];
+					if ((obj.onstartmenu)&&(obj.child)){
+						newLI="<li data-catid='"+obj.id+"' onmouseover='resume.SelectStartMenuCat($(this).data(\"catid\"));' id='"+obj.id+"_MC'><a title='"+obj.description+"'><img src='./img/startmenu/"+obj.icon+".png'> "+obj.name+"</a></li>";
+						dv.append(newLI);
+						if (obj.child){
+							CountedFiles=obj.child.length;
+							if (CountedFiles>0){
+								if (showThisList) {
+									resume.SelStartMenuCat=obj.id;
+									showThisList=false;
+									sd.append("<ul id='"+obj.id+"' style='display:block;'></ul>");
+								}else{
+									sd.append("<ul id='"+obj.id+"' style='display:none;'></ul>");
+								}
+								
+
+								for (var x=0;x<CountedFiles;x++){
+									if (obj.child[x].onstartmenu){
+										newLI="<li data-path='{\"ItemPath\":\""+i+","+x+"\",\"newWindow\":true}' onclick='resume.Execute($(this).data(\"path\"));resume.Sound(0);'><a title='"+obj.child[x].description+"'><img src='./img/startmenu/"+obj.child[x].icon+".png' width='22' height='22'> "+obj.child[x].name+"</a></li>";
+										$("#"+obj.id).append(newLI);
+									}
+									
+								}
+							}
+						}
+					}
+					resume.CreateDesktopIcon(obj, i, -1, $("#DesktopContainer"), true);
+				}
+				//$("#TaskBar_StartMenuItemListDiv").html("<center><i>Select a category...</i></center>");
+			});
+		},
+		
+		IconNameInputShowChange: function($obj){
+			var inp=$obj.find("input");
+			$obj.find("span").hide();
+			inp.show().focus();
+			inp.on('keyup', function (e) {
+				if((e.which == 13)||(e.which == 27)){
+					$(this).blur();
+					$(this).focusout();
+					$(this).off("keyup")
+				}
+			});			
+		},
+		IconNameChangeSave: function($obj){
+			var ItemPath = $obj.closest(".DesktopIconBox").find("a").first().data("path").ItemPath.split(",");
+			var inp=$obj.find("input");
+			var spn=$obj.find("span");
+			var newName=resume.SafeName(inp.val());
+			if (newName  == "") {newName="New";}
+			var len = ItemPath.length,ExecTarget=resume.Database[ItemPath[0]];
+			for (var i=1;i<len;i++){
+					ExecTarget=ExecTarget.child[ItemPath[i]];
+			}
+			
+			//------- SAVE to object. so this way the "resume.Database" also updated
+			ExecTarget.name=newName;
+			//----------------
+		
+			spn.text(newName).show();
+			inp.val(newName).hide();
+		},
+		FileExplorerNav: function($obj){
+			resume.Execute($obj.data("path"));
+			resume.Sound(0);
+		},
+		CreateDesktopIcon(item, ItemPath1, ItemPath2, targetContainer, newWindow){
+			if (item.ondesktop){
+				ItemPath2 != -1 ? ItemPath1 +="," : ItemPath2=""
+				var tooltip="Description: "+item.description+"&#013;Type: "+item.type+"&#013;Status: ";
+				item.readonly ? tooltip+="readonly" : tooltip+="writeable"
+				item.child ? tooltip+="&#013;Content: &nbsp;"+item.child.length+" file(s) or folder(s)&#013;" : null;
+				tooltip+="&#013;Created at: "+resume.GetDateFromTimestamp(item.createtime)+"&#013;Modified at: "+resume.GetDateFromTimestamp(item.lastmodify);
+				targetContainer.append("<div id='"+item.id+"_DE' class='DesktopIconBox'><a title='"+tooltip+"' data-path='{\"ItemPath\":\""+ItemPath1+ItemPath2+"\",\"newWindow\":"+newWindow+"}' onclick='resume.FileExplorerNav($(this));'><div class='DesktopIconImgBox'><img src='./img/desktop/"+item.icon+".png'></div></a><a title='"+item.name+"'><div class='DesktopIconTextBox'><input type='text' maxlength='24' value='"+item.name+"' onfocusout='resume.IconNameChangeSave($(this).parent());'><span onclick='resume.IconNameInputShowChange($(this).parent());'>"+item.name+"</span></div></a></div>");
+				$( "#"+item.id+"_DE" ).contextmenu(function() {
+					alert( "Handler for .contextmenu() called." );
+				});		
+			};
+		},
+		Execute: function(obj){
+			var ItemPath = obj.ItemPath.split(",");
+			var len = ItemPath.length,ExecTarget=resume.Database[ItemPath[0]],FullStringPath="/"+ExecTarget.name;
+			if (len>0){
+				for (var i=1;i<len;i++){
+					ExecTarget=ExecTarget.child[ItemPath[i]];
+					FullStringPath+="/"+ExecTarget.name;
+				}
+				!resume.FExtension[ExecTarget.type] ? alert("No app for this file type...") : resume.Apps.list[resume.FExtension[ExecTarget.type]].start(ExecTarget, obj.newWindow, obj.ItemPath, FullStringPath)
+			}
+		},
+		GetUniqueId: function(){
+			return Date.now();
+		},
+		SoundToggle: function(){
+			if (resume.SoundOn){
+				resume.SoundOn=false;
+				$("#SM_SoundIcon").attr("src","./img/startmenu/soundoff.png");
+			}else{
+				resume.SoundOn=true;
+				$("#SM_SoundIcon").attr("src","./img/startmenu/soundon.png");
+			}
+		},
+		SafeName: function(str){
+			return str.replace(/'/g, "").replace(/"/g, '').trim();
+		},
+		CheckAppRunning: function(id){
+			var crApps=resume.RunningApps.length;	//currently running apps amount
+			if (resume.RunningApps.length == 0){
+				return [false];
+			}else{
+				for (var i=0;i<crApps;i++){
+					if (resume.RunningApps[i].appId == id) {return [true, resume.RunningApps[i].focused];}
+				}
+				return [false];
+			}
+		},		
+		SystemInit:function(){
+			resume.LoadFileExtensionList();
+			resume.LoadFileSystem();	
+			resume.LoadApps();			
+			resume.startClock();
+			resume.setTooltipDate();
+			resume.SoundToggle();	
+		}
+	};
+	
+
+(function(){
+		var t = new Date();
+		var y = t.getFullYear();
+		var m = t.getMonth();
+		var d = t.getDate();
+		var myAge = y-1987-1;
+		((m > 4)||((m==4)&&(d>=18))) ? myAge++ : null
+		$("#MyCurrentAge").html(myAge);
+}()); 
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+  "html": "app_html_viewer",
+  "dir": "app_file_explorer",
+  "alert": "app_alert",
+  "url": "app_link",
+  "shell": "app_terminal"
+}

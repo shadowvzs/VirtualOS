@@ -1,0 +1,339 @@
+{
+   "child": [
+				{
+					"name": "References",
+					"id": "TS_References",
+					"description": "I stored here my references",
+					"icon":"folder",
+					"readonly":false,
+					"ondesktop": true,
+					"onstartmenu": true,
+					"createtime":1503812702,
+					"lastmodify":1503812702,
+					"type":"dir",
+					"child":[
+								{
+								   "name": "This Page",
+								   "id":"Ref4",
+								   "description": "CSS, Javascript, jQuery, desktop imitation with JSON",
+								   "icon":"doc",
+								   "type":"html",
+								   "createtime":1503812702,
+								   "lastmodify":1503812702,
+								   "readonly":false,
+								   "ondesktop": true,
+								   "onstartmenu": true,
+								   "url":"./page/resume_info.html"
+								},
+								{
+								   "name": "pwAdmin",
+								   "id":"Ref3",
+								   "description": "PHP (5.3+), CSS, Javascript, MySQL, Ajax + JSON",
+								   "icon":"doc",
+								   "type":"html",
+								   "createtime":1503812702,
+								   "lastmodify":1503812702,
+								   "readonly":false,
+								   "ondesktop": true,
+								   "onstartmenu": true,
+								   "url":"./page/pwadmin.html"
+								},
+								{
+								   "name": "Gyozelem.ro",
+								   "id":"Ref2",
+								   "description": "PHP (5.3-), CSS, Javascript, MySQL",
+								   "icon":"doc",
+								   "type":"html",
+								   "createtime":1503812702,
+								   "lastmodify":1503812702,
+								   "readonly":false,
+								   "ondesktop": true,
+								   "onstartmenu": true,
+								   "url":"./page/gyozelem.ro.html"
+								},
+								{
+								   "name": "Overall",
+								   "id":"Ref1",
+								   "description": "Every references collected into this page",
+								   "icon":"doc",
+								   "type":"html",
+								   "createtime":1503812702,
+								   "lastmodify":1503812702,
+								   "readonly":false,
+								   "ondesktop": true,
+								   "onstartmenu": true,
+								   "url":"./page/references.html"
+								}
+							]
+				},
+				{
+					"name": "Resumes",
+					"id": "TS_Resumes",
+					"description": "Here for my resumes",
+					"icon":"folder",
+					"readonly":false,
+					"ondesktop": true,
+					"onstartmenu": true,
+					"createtime":1503812702,
+					"lastmodify":1503812702,
+					"type":"dir",
+					"child":[
+								{
+								   "name": "My Resume [EN]",
+								   "id":"Res1",
+								   "description": "This is my resume (english version)",
+								   "icon":"doc",
+								   "type":"html",
+								   "createtime":1503812702,
+								   "lastmodify":1503812702,
+								   "readonly":false,
+								   "ondesktop": true,
+								   "onstartmenu": true,
+								   "url":"./page/resume.html"
+								}
+							]   
+				},
+			   {
+					"name": "Future Plans",
+					"id": "TS_Plans",
+					"description": "What i want in future? Check this folder!",
+					"icon":"folder",
+					"readonly":false,
+					"ondesktop": false,
+					"onstartmenu": true,
+					"createtime":1503812702,
+					"lastmodify":1503812702,
+					"type":"dir",
+					"child":[
+								{
+								   "name": "I want learn...",
+								   "id":"Plan1",
+								   "description": "I want to be... a... What?",
+								   "icon":"file",
+								   "type":"html",
+								   "createtime":1503812702,
+								   "lastmodify":1503812702,
+								   "readonly":false,
+								   "ondesktop": true,
+								   "onstartmenu": true,
+								   "url":"./page/plans.html"
+								}
+				   ]       
+				},
+				{
+					"name": "How To Stuffs",
+					"id": "TS_HowTo",
+					"description": "Guide collection",
+					"icon":"folder",
+					"readonly":false,
+					"ondesktop": true,
+					"onstartmenu": true,
+					"createtime":1503812702,
+					"lastmodify":1503812702,
+					"type":"dir",
+					"child":[
+								{
+								   "name": "Git Basics #1",
+								   "id":"Ref4212",
+								   "description": "eaza asda wq eq",
+								   "icon":"shell",
+								   "type":"shell",
+								   "createtime":1503812702,
+								   "lastmodify":1503812702,
+								   "readonly":false,
+								   "ondesktop": true,
+								   "onstartmenu": false,
+								   "url":"./page/git.sh"
+								}
+							]  
+				},
+			   {
+					"name": "Hobbies",
+					"id": "TS_Hobby",
+					"description": "Here is my hobby list",
+					"icon":"folder",
+					"readonly":false,
+					"ondesktop": false,
+					"onstartmenu": true,
+					"createtime":1503812702,
+					"lastmodify":1503812702,
+					"type":"dir",
+					"child":[
+								{
+								   "name": "Linux is nice!",
+								   "id":"Hob1",
+								   "description": "I love the linux, do you want knwo why?",
+								   "icon":"file",
+								   "type":"html",
+								   "createtime":1503812702,
+								   "lastmodify":1503812702,
+								   "readonly":false,
+								   "ondesktop": true,
+								   "onstartmenu": true,
+								   "url":"./page/hobbies.html"
+								}
+							]  
+			   },
+			   {
+					"name": "Contact",
+					"id": "TS_Contact",
+					"description": "Do you want contact with me?",
+					"icon":"folder",
+					"readonly":false,
+					"ondesktop": false,
+					"onstartmenu": true,
+					"createtime":1503812702,
+					"lastmodify":1503812702,
+					"type":"dir",
+					"child":[
+								{
+									"name": "Email",
+									"id":"Con1",
+									"description": "Click here for my email address!",
+									"icon":"outlook",
+									"type":"alert",
+									"createtime":1503812702,
+									"lastmodify":1503812702,
+									"readonly":false,
+									"ondesktop": true,
+									"onstartmenu": true,
+									"text": "Hello, my mail address is: shadowvzs@hotmail.com"
+								},
+								{
+									"name": "LinkedIn",
+									"id":"Con2",
+									"description": "Click here for my LinkedIn",
+									"icon":"linkedin",
+									"type":"url",
+									"createtime":1503812702,
+									"lastmodify":1503812702,
+									"readonly":false,
+									"ondesktop": true,
+									"onstartmenu": true,
+									"url": "https://www.linkedin.com/in/varga-zsolt-5b4b15149/"
+								},
+								{
+									"name": "Facebook",
+									"id":"Con3",
+									"description": "Click here if you want contact in Facebook",
+									"icon":"facebook",
+									"type":"url",
+									"createtime":1503812702,
+									"lastmodify":1503812702,
+									"readonly":false,
+									"ondesktop": true,
+									"onstartmenu": true,
+									"url": "https://www.facebook.com/shadowvzs"
+
+								},
+								{
+									"name": "Git Hub",
+									"id":"Con4",
+									"description": "Click here if you want check my Git repo",
+									"icon":"git",
+									"type":"url",
+									"createtime":1503812702,
+									"lastmodify":1503812702,
+									"readonly":false,
+									"ondesktop": true,
+									"onstartmenu": true,
+									"url": "https://github.com/shadowvzs"
+								},
+								{
+									"name": "Skype",
+									"id":"Con5",
+									"description": "Click here if you want write on Skype",
+									"icon":"skype",
+									"type":"alert",
+									"createtime":1503812702,
+									"lastmodify":1503812702,
+									"readonly":false,
+									"ondesktop": true,
+									"onstartmenu": true,
+									"text": "Hello, my mail address on Skype is: shadowvzs@hotmail.com"
+								}
+
+							]  
+				},
+				{
+					"name": "About",
+					"id": "TS_About",
+					"description": "More info about the page.",
+					"icon":"folder",
+					"readonly":false,
+					"ondesktop": true,
+					"onstartmenu": true,
+					"createtime":1503812702,
+					"lastmodify":1503812702,
+					"type":"dir",
+					"child":[
+								{
+								   "name": "About the page",
+								   "id":"About1",
+								   "description": "How it was wrote and few information about page",
+								   "icon":"file",
+								   "type":"html",
+								   "createtime":1503812702,
+								   "lastmodify":1503812702,
+								   "readonly":false,
+								   "ondesktop": true,
+								   "onstartmenu": true,
+								   "url":"./page/about.html"
+								},
+								{
+									"name": "Abou 5",
+									"id": "TS_Aboutsd",
+									"description": "More info about the page.",
+									"icon":"folder",
+									"readonly":false,
+									"ondesktop": true,
+									"onstartmenu": true,
+									"createtime":1503812702,
+									"lastmodify":1503812702,
+									"type":"dir",
+									"child":[
+												{
+													"name": "Abou 523",
+													"id": "TS_Abouts1d",
+													"description": "More info about the page.",
+													"icon":"folder",
+													"readonly":false,
+													"ondesktop": true,
+													"onstartmenu": true,
+													"createtime":1503812702,
+													"lastmodify":1503812702,
+													"type":"dir",
+													"child":[]
+												},
+												{
+												   "name": "AboutDEEp",
+												   "id":"About1ssf",
+												   "description": "How it was wrote and few information about page",
+												   "icon":"file",
+												   "type":"html",
+												   "createtime":1503812702,
+												   "lastmodify":1503812702,
+												   "readonly":false,
+												   "ondesktop": true,
+												   "onstartmenu": true,
+												   "url":"./page/about.html"
+												}
+											]  
+								}
+							]  
+				},
+				{
+				   "name": "Log File",
+				   "id":"PageLog",
+				   "description": "Changes on page was loged here",
+				   "icon":"file",
+				   "type":"html",
+				   "createtime":1503812702,
+				   "lastmodify":1503812702,
+				   "readonly":false,
+				   "ondesktop": true,
+				   "onstartmenu": false,
+				   "url":"./page/pagelog.html"
+				}				
+			]
+}
