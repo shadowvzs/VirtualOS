@@ -5,6 +5,7 @@ resume.Apps={
 					"description": "Open the HTML files",
 					"window": 	{
 									"full": "<div id='HTMLViewerWindow'><div class='WindowHead_Light4'><span style='text-align:left;'><b>HTML Viewer - <span id='WindowTargetFileName'></span></b></span><div style='right:26px;' class='WindowMiniButton_Light1' onclick='***'>&#95;</div><div class='WindowMiniButton_Light1' onclick='$$$'>&#10006;</div></div><div id='HTMLViewerContent'></div></div>",		
+									"headerbar": ".WindowHead_Light4",
 									"header": "#WindowTargetFileName",
 									"body": "#HTMLViewerContent",
 									"size": { "fixed": true},
@@ -31,10 +32,11 @@ resume.Apps={
 					}
 				},
 				"app_file_explorer":{
-					"name": "File Explorer",
+					"name": "Explorer",
 					"description": "Explorer the virtual file system",
 					"window": 	{
-									"full": "<div id='FileExplorerWindow'><div class='WindowHead_Light4'><span style='text-align:left;'><b>File Explorer - <span id='WindowTargetFileName'></span></b></span><div style='right:26px;' class='WindowMiniButton_Light1' onclick='***'>&#95;</div><div class='WindowMiniButton_Light1' onclick='$$$'>&#10006;</div></div><div id='FileExplorerAddressBarDiv'><input type='text' id='FileExplorerAddressBar' onfocus='this.blur()' readonly value='./thefolderpath'></div><div id='FileExplorerContent'></div></div>",		
+									"full": "<div id='FileExplorerWindow'><div class='WindowHead_Light4'><span style='text-align:left;'><b>Explorer - <span id='WindowTargetFileName'></span></b></span><div style='right:26px;' class='WindowMiniButton_Light1' onclick='***'>&#95;</div><div class='WindowMiniButton_Light1' onclick='$$$'>&#10006;</div></div><div id='FileExplorerAddressBarDiv'><input type='text' id='FileExplorerAddressBar' onfocus='this.blur()' readonly value='./thefolderpath'></div><div id='FileExplorerContent'></div></div>",		
+									"headerbar": ".WindowHead_Light4",
 									"header": "#WindowTargetFileName",
 									"body": "#FileExplorerContent",
 									"fulladdress": "#FileExplorerAddressBarDiv",
@@ -49,7 +51,7 @@ resume.Apps={
 										var newWindow=$("#"+id);
 										newWindow.find(AppWindowData.header).html(obj.name);
 										newWindow.find(AppWindowData.body).load(obj.url);
-										//AppWindowData.setParentPath(AppId, id);
+										newWindow.find(AppWindowData.headerbar).dragdrop("#"+id);
 										newWindow.fadeIn();
 										var AddressDiv=$("#"+id+" "+AppWindowData.fulladdress);
 										//add back to root button
@@ -94,6 +96,7 @@ resume.Apps={
 					"description": "Then unix command.com (Open the shell files too)",
 					"window": 	{
 									"full": "<div id='TerminalDiv'><div class='WindowHead_Light3'><span style='text-align:left;'><b>Terminal - <span id='WindowTargetFileName'></span></b></span><div style='right:26px;' class='WindowMinimize_Light1' onclick='***'>&#95;</div><div class='WindowClose_Light1' onclick='$$$'>&#10006;</div></div>	<div id='TerminalBackground'></div><div id='TerminalContent'> </div> <div id='TerminalInputLine'><span id='input_prefix'>root@root-desktop:~$</span> <input type='text' id='TerminalInput' value=''></div> </div>",
+									"headerbar": ".WindowHead_Light3",
 									"header": "#WindowTargetFileName",
 									"body": "#TerminalContent",
 									"inputline":"#TerminalInputLine",
@@ -113,6 +116,7 @@ resume.Apps={
 										inputElem.keydown(resume.Apps.list[AppId].NewTeminalLine);
 										inputElem.focus();
 										newWindow.fadeIn();
+										newWindow.find(AppWindowData.headerbar).dragdrop("#"+id);
 									}
 								},
 					"start": function(obj, newWindow, path, strPath){
@@ -131,65 +135,16 @@ resume.Apps={
 											"text":readThis,
 											"delayRange": [10,100],
 											"lineEndDelay": 500,
-											"lineCommentDelay": 500,	
+											"lineCommentDelay": 750,	
 											"index": 0,
 											"max": readThis.length,
 											"line": readThis[0][0],
 											"setLine": function(n){ this.line=this.text[n][0];}
-									};									
-									(function readLine (data){
-										if (data.line.length>0){
-											if ($(data.target).length){
-												var delay=Math.random()*(data.delayRange[1]-data.delayRange[0])+data.delayRange[0];
-												setTimeout(function () {
-													$(data.target).val($(data.target).val()+data.line.charAt(0));
-													data.line=data.line.substr(1);
-													readLine(data);
-												}, delay);
-											}else{
-												//if element not exist, example during autowriteing someone close the window
-												data=null;
-											}
-										}else{
-											setTimeout(function () {
-												$(data.container).html($(data.container).html()+$(data.target).val());
-												$(data.target).val("");
-												setTimeout(function () {
-													if (data.text[data.index][1].length > 0) {
-														$(data.container).html($(data.container).html()+"<br><font color='gray'>"+data.text[data.index][1]+"</font><br><br>");
-													}else{
-														$(data.container).html($(data.container).html()+"<br>");
-													}
-													var delay=data.text[data.index][1].length*50+1000;
-													data.index++;
-													if (data.index < data.max){
-														setTimeout(function () {
-														data.setLine(data.index);
-														readLine(data);
-														}, delay);
-													}else{
-														setTimeout(function () {
-															//done, we quit
-															$(data.container).html($(data.container).html()+"<br> ... finished")
-															data=null;
-														}, delay);							
-													}
-												}, data.lineCommentDelay);
-											}, data.lineEndDelay);
-										}						
-									})(data);
+									};					
+									AutoTyper(data);
 						});		
-						//var winContainer = $("#"+TaskData[1]+" "+thisWindow.body);
-						//var ContentLen=obj.child.length;
-						//var newWindow=false;
-						//thisWindow.setParentPath(appId, TaskData[1], path)
-						//for (var i=0;i<ContentLen;i++){
-						//	obj.child[i].child ? newWindow=false : newWindow=true
-						//	resume.CreateDesktopIcon(obj.child[i], [path,i], -1, winContainer, newWindow);
-						//}
 					},
 					NewTeminalLine: function (event){
-						//alert(event.target.parentNode.parentNode.id);
 						if(event.keyCode == 13){
 							var thisWindow=$(event.target.parentNode.parentNode);
 							var input = thisWindow.find("#TerminalInput");
@@ -198,7 +153,7 @@ resume.Apps={
 							var txt=input.val();
 							if (txt.trim().length>0){
 								content.html(content.html().trim()+"<br>"+prefix.html()+" "+txt);
-								 content.scrollTop(1E10);
+								content.scrollTop(1E10);
 								input.val("");
 							}
 						}
@@ -235,7 +190,7 @@ resume.Apps={
 			AppId=resume.RunningApps[i].appId;
 			taskbarAppButton=$(("#tsk_btn_"+AppId+" #taskButtonLink"));
 			taskbarAppList=$("#tsk_list_"+AppId);
-			//now set width, left posisition after button, add event listener to click
+			//now set width, left position after button
 			taskbarAppList.offset({left: taskbarAppButton.offset().left});	
 			taskbarAppList.width(taskbarAppButton.width());
 		}
@@ -289,6 +244,7 @@ resume.Apps={
 				var existWinId=resume.RunningApps[entryExist[1]].windows[entryExist[2]].id;
 				taskGroup.windows[entryExist[2]].minimize === true ? setTimeout(function (){resume.Apps.restore(appId, existWinId)}, 100) : setTimeout(function(){resume.Apps.focusToWindow(existWinId)}, 100)
 			}else{
+				resume.Sound.Play(0);
 				if (max < resume.Apps.list[appId].taskbar.maxproc){
 					var winMax=taskGroup.windows.length;
 					//refresh the text for taskgroup button
@@ -370,6 +326,7 @@ resume.Apps={
 		//check if it exist, if yes then e get the position in object for taget window what we want close
 		taskStatus=resume.Apps.findTask(AppId, ["id",WindowId]);
 		if (taskStatus[0]===true){
+			resume.Sound.Play(1);
 			ourGroup=resume.RunningApps[taskStatus[1]];
 			max=resume.RunningApps[taskStatus[1]].windows.length;
 			windowList=resume.RunningApps[taskStatus[1]].windows;
@@ -477,6 +434,7 @@ resume.Apps={
 		var selectedWindow=$("#"+WindowId);
 		var taskStatus=resume.Apps.findTask(AppId, ["id", WindowId]);
 		if (taskStatus[0]===true){
+			resume.Sound.Play(0);
 			resume.Apps.focusToWindow(WindowId);
 			resume.RunningApps[taskStatus[1]].currentWindow=taskStatus[2];
 			if (resume.RunningApps[taskStatus[1]].windows[taskStatus[2]].minimize!=false){
@@ -493,6 +451,7 @@ resume.Apps={
 		selectedWindow.css("z-index", "2");
 		taskStatus=resume.Apps.findTask(AppId, ["id", WindowId]);
 		if (taskStatus[0]===true){
+			resume.Sound.Play(1);
 			resume.RunningApps[taskStatus[1]].windows[taskStatus[2]].minimize=true;
 			resume.Apps.lastApp.focus=-1;
 			TaskListButton=$("#tsk_list_"+AppId+" li").eq(taskStatus[2]);
@@ -502,11 +461,83 @@ resume.Apps={
 				if (TaskGroupButton.hasClass('TaskBarHighlighted')) {TaskGroupButton.removeClass("TaskBarHighlighted");}
 			}, 100);
 			
-		}
+		};
+		(function(){
+				var t = new Date();
+				var y = t.getFullYear();
+				var m = t.getMonth();
+				var d = t.getDate();
+				var myAge = y-1987-1;
+				((m > 4)||((m==4)&&(d>=18))) ? myAge++ : null
+				$("#MyCurrentAge").html(myAge);
+		}()); 		
 	}
 	
 };
 
+$.fn.dragdrop = function (el) {
+    this.bind('mousedown', function (e) {
+        var relX = e.pageX - $(el).offset().left;
+        var relY = e.pageY - $(el).offset().top;
+        var maxX = $('body').width() - $(el).width() - 10;
+        var maxY = $('body').height() - $(el).height() - 10;
+        $(document).bind('mousemove', function (e) {
+            var diffX = Math.min(maxX, Math.max(0, e.pageX - relX));
+            var diffY = Math.min(maxY, Math.max(0, e.pageY - relY));
+            $(el).css('left', diffX + 'px').css('top', diffY + 'px');
+        });
+    });
+    $(window).bind('mouseup', function (e) {
+        $(document).unbind('mousemove');
+    });
+    return this;
+};
+
+AutoTyper = function (data) {
+	(function readLine (data){
+		if (data.line.length>0){
+			if ($(data.target).length){
+				var delay=Math.random()*(data.delayRange[1]-data.delayRange[0])+data.delayRange[0];
+				setTimeout(function () {
+					$(data.target).val($(data.target).val()+data.line.charAt(0));
+					data.line=data.line.substr(1);
+					readLine(data);
+				}, delay);
+			}else{
+				//if element not exist, example during autowriteing someone close the window
+				data=null;
+			}
+		}else{
+			setTimeout(function () {
+				$(data.container).html($(data.container).html()+$(data.target).val());
+				$(data.target).val("");
+				setTimeout(function () {
+					if (data.text[data.index][1].length > 0) {
+						$(data.container).html($(data.container).html()+"<br><font color='gray'>"+data.text[data.index][1]+"</font><br><br>");
+					}else{
+						$(data.container).html($(data.container).html()+"<br>");
+					}
+					$(data.container).scrollTop(1E10);
+					var delay=data.text[data.index][1].length*50+1000;
+					data.index++;
+					if (data.index < data.max){
+						setTimeout(function () {
+						data.setLine(data.index);
+						readLine(data);
+						}, delay);
+					}else{
+						setTimeout(function () {
+							//done, we quit
+							$(data.container).html($(data.container).html()+"<br> ... finished");
+							$(data.container).scrollTop(1E10);
+							data=null;
+						}, delay);							
+					}
+				}, data.lineCommentDelay);
+			}, data.lineEndDelay);
+		}						
+	})(data);
+};
 /*
 
 */

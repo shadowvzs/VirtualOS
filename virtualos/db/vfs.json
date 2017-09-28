@@ -21,7 +21,6 @@
 								   "createtime":1503812702,
 								   "lastmodify":1503812702,
 								   "readonly":false,
-								   "ondesktop": true,
 								   "onstartmenu": true,
 								   "url":"./page/resume_info.html"
 								},
@@ -34,7 +33,6 @@
 								   "createtime":1503812702,
 								   "lastmodify":1503812702,
 								   "readonly":false,
-								   "ondesktop": true,
 								   "onstartmenu": true,
 								   "url":"./page/pwadmin.html"
 								},
@@ -47,7 +45,6 @@
 								   "createtime":1503812702,
 								   "lastmodify":1503812702,
 								   "readonly":false,
-								   "ondesktop": true,
 								   "onstartmenu": true,
 								   "url":"./page/gyozelem.ro.html"
 								},
@@ -60,7 +57,6 @@
 								   "createtime":1503812702,
 								   "lastmodify":1503812702,
 								   "readonly":false,
-								   "ondesktop": true,
 								   "onstartmenu": true,
 								   "url":"./page/references.html"
 								}
@@ -87,7 +83,6 @@
 								   "createtime":1503812702,
 								   "lastmodify":1503812702,
 								   "readonly":false,
-								   "ondesktop": true,
 								   "onstartmenu": true,
 								   "url":"./page/resume.html"
 								}
@@ -114,15 +109,14 @@
 								   "createtime":1503812702,
 								   "lastmodify":1503812702,
 								   "readonly":false,
-								   "ondesktop": true,
 								   "onstartmenu": true,
 								   "url":"./page/plans.html"
 								}
 				   ]       
 				},
 				{
-					"name": "How To Stuffs",
-					"id": "TS_HowTo",
+					"name": "Tutorials",
+					"id": "TS_Tutorials",
 					"description": "Guide collection",
 					"icon":"folder",
 					"readonly":false,
@@ -133,18 +127,53 @@
 					"type":"dir",
 					"child":[
 								{
-								   "name": "Git Basics #1",
-								   "id":"Ref4212",
-								   "description": "eaza asda wq eq",
-								   "icon":"shell",
-								   "type":"shell",
-								   "createtime":1503812702,
-								   "lastmodify":1503812702,
-								   "readonly":false,
-								   "ondesktop": true,
-								   "onstartmenu": false,
-								   "url":"./page/git.sh"
-								}
+									"name": "Ubuntu",
+									"id": "TS_Ubuntu",
+									"description": "Guide collection",
+									"icon":"folder",
+									"readonly":false,
+									"onstartmenu": true,
+									"createtime":1503812702,
+									"lastmodify":1503812702,
+									"type":"dir",
+									"child":[
+												{
+												   "name": "Ubuntu Commands #1",
+												   "id":"Ubuntu_1",
+												   "description": "Several usefull command",
+												   "icon":"shell",
+												   "type":"shell",
+												   "createtime":1503812702,
+												   "lastmodify":1503812702,
+												   "readonly":false,
+												   "url":"./page/git.sh"
+												}
+									]
+								},
+								{
+									"name": "Git",
+									"id": "TS_Git",
+									"description": "Guide collection",
+									"icon":"folder",
+									"readonly":false,
+									"onstartmenu": true,
+									"createtime":1503812702,
+									"lastmodify":1503812702,
+									"type":"dir",
+									"child":[
+												{
+												   "name": "Git Basics #1",
+												   "id":"Git_1",
+												   "description": "Basics, how to start the git",
+												   "icon":"shell",
+												   "type":"shell",
+												   "createtime":1503812702,
+												   "lastmodify":1503812702,
+												   "readonly":false,
+												   "url":"./page/git.sh"
+												}
+									]
+								}								
 							]  
 				},
 			   {
@@ -160,18 +189,29 @@
 					"type":"dir",
 					"child":[
 								{
-								   "name": "Linux is nice!",
-								   "id":"Hob1",
+								   "name": "Linux",
+								   "id":"Hobby_1",
 								   "description": "I love the linux, do you want knwo why?",
 								   "icon":"file",
 								   "type":"html",
 								   "createtime":1503812702,
 								   "lastmodify":1503812702,
 								   "readonly":false,
-								   "ondesktop": true,
 								   "onstartmenu": true,
-								   "url":"./page/hobbies.html"
-								}
+								   "url":"./page/linux.html"
+								},
+								{
+								   "name": "and rest",
+								   "id":"Hobby_2",
+								   "description": "Many thing what i do",
+								   "icon":"file",
+								   "type":"html",
+								   "createtime":1503812702,
+								   "lastmodify":1503812702,
+								   "readonly":false,
+								   "onstartmenu": true,
+								   "url":"./page/rest.html"
+								}								
 							]  
 			   },
 			   {
@@ -195,7 +235,6 @@
 									"createtime":1503812702,
 									"lastmodify":1503812702,
 									"readonly":false,
-									"ondesktop": true,
 									"onstartmenu": true,
 									"text": "Hello, my mail address is: shadowvzs@hotmail.com"
 								},
@@ -208,7 +247,6 @@
 									"createtime":1503812702,
 									"lastmodify":1503812702,
 									"readonly":false,
-									"ondesktop": true,
 									"onstartmenu": true,
 									"url": "https://www.linkedin.com/in/varga-zsolt-5b4b15149/"
 								},
@@ -221,7 +259,6 @@
 									"createtime":1503812702,
 									"lastmodify":1503812702,
 									"readonly":false,
-									"ondesktop": true,
 									"onstartmenu": true,
 									"url": "https://www.facebook.com/shadowvzs"
 
@@ -235,7 +272,6 @@
 									"createtime":1503812702,
 									"lastmodify":1503812702,
 									"readonly":false,
-									"ondesktop": true,
 									"onstartmenu": true,
 									"url": "https://github.com/shadowvzs"
 								},
@@ -248,7 +284,6 @@
 									"createtime":1503812702,
 									"lastmodify":1503812702,
 									"readonly":false,
-									"ondesktop": true,
 									"onstartmenu": true,
 									"text": "Hello, my mail address on Skype is: shadowvzs@hotmail.com"
 								}
@@ -276,7 +311,6 @@
 								   "createtime":1503812702,
 								   "lastmodify":1503812702,
 								   "readonly":false,
-								   "ondesktop": true,
 								   "onstartmenu": true,
 								   "url":"./page/about.html"
 								},
@@ -286,7 +320,6 @@
 									"description": "More info about the page.",
 									"icon":"folder",
 									"readonly":false,
-									"ondesktop": true,
 									"onstartmenu": true,
 									"createtime":1503812702,
 									"lastmodify":1503812702,
@@ -298,8 +331,6 @@
 													"description": "More info about the page.",
 													"icon":"folder",
 													"readonly":false,
-													"ondesktop": true,
-													"onstartmenu": true,
 													"createtime":1503812702,
 													"lastmodify":1503812702,
 													"type":"dir",
@@ -314,8 +345,6 @@
 												   "createtime":1503812702,
 												   "lastmodify":1503812702,
 												   "readonly":false,
-												   "ondesktop": true,
-												   "onstartmenu": true,
 												   "url":"./page/about.html"
 												}
 											]  
@@ -324,7 +353,7 @@
 				},
 				{
 				   "name": "Log File",
-				   "id":"PageLog",
+				   "id":"TS_PageLog",
 				   "description": "Changes on page was loged here",
 				   "icon":"file",
 				   "type":"html",
@@ -334,6 +363,41 @@
 				   "ondesktop": true,
 				   "onstartmenu": false,
 				   "url":"./page/pagelog.html"
-				}				
+				},	
+				{
+					"name": "Control Panel",
+					"id": "TS_Settings",
+					"description": "System settings for this virtual OS",
+					"icon":"folder",
+					"readonly":true,
+					"settings":true,
+					"createtime":1503812702,
+					"lastmodify":1503812702,
+					"type":"dir",
+					"child":[
+							{
+							   "name": "Display",
+							   "id":"TS_Display",
+							   "description": "Display settings",
+							   "icon":"sys_display",
+							   "type":"app.display",
+							   "createtime":1503812702,
+							   "lastmodify":1503812702,
+							   "readonly":true,
+							   "url":"./page/pagelog.html"
+							},
+							{
+							   "name": "Running Task(s)",
+							   "id":"TS_TaskMngr",
+							   "description": "Overview the running tasks",
+							   "icon":"sys_task",
+							   "type":"app.task",
+							   "createtime":1503812702,
+							   "lastmodify":1503812702,
+							   "readonly":true,
+							   "url":"./page/pagelog.html"
+							}							
+					]
+				}					
 			]
 }
