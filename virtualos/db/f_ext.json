@@ -3,5 +3,7 @@
   "dir": "app_file_explorer",
   "alert": "app_alert",
   "url": "app_link",
-  "shell": "app_terminal"
+  "shell": "app_terminal",
+  "app.task": "app_taskmanager",
+  "app.display": "app_display"
 }

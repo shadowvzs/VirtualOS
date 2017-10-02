@@ -127,7 +127,7 @@
 }
 
 
-#FileExplorerWindow{
+#MyWindow{
 	position: absolute; 
 	top:1px;
 	left:1px;
@@ -143,7 +143,7 @@
 	font-size: 12px;
 	font-family: arial;
 }
-#FileExplorerAddressBarDiv{
+#MyWindowAddressBarDiv{
 	position: absolute; 
 	top:31px;
 	right:2px;
@@ -152,7 +152,7 @@
 	color: #000;
 	overflow: hidden;
 }
-#FileExplorerAddressBarDiv img{
+#MyWindowAddressBarDiv img{
 	vertical-align: middle;
 	display: inline-block;
 	width:26px;
@@ -165,11 +165,11 @@
 	border-radius: 2px;
 }
 
-#FileExplorerAddressBarDiv img:hover{
+#MyWindowAddressBarDiv img:hover{
 	opacity: 1;
 }
 
-#FileExplorerAddressBarDiv input{
+#MyWindowAddressBarDiv input{
 	position: absolute;
 	top: 1px;
 	margin-left:60px;
@@ -184,9 +184,9 @@
 	background-color:rgba(200,200,255,0.7);
 }
 
-#FileExplorerContent{
+#MyWindowContent{
 	position: absolute; 
-	top:61px;
+	top:32px;
 	right:1px;
 	bottom:1px;
 	left:1px;
@@ -205,6 +205,6 @@
     flex-direction: row;
     align-content: flex-start;
 }
-#FileExplorerContent a:hover{
+#MyWindowContent a:hover{
 	text-shadow:0px 0px 5px rgba(0,0,255,0.5);
 }

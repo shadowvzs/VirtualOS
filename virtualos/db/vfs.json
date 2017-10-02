@@ -383,19 +383,20 @@
 							   "type":"app.display",
 							   "createtime":1503812702,
 							   "lastmodify":1503812702,
+							   "hidetype":true,
 							   "readonly":true,
-							   "url":"./page/pagelog.html"
+							   "url":["./page/pagelog.html"]
 							},
 							{
-							   "name": "Running Task(s)",
+							   "name": "Running Tasks",
 							   "id":"TS_TaskMngr",
 							   "description": "Overview the running tasks",
 							   "icon":"sys_task",
 							   "type":"app.task",
 							   "createtime":1503812702,
 							   "lastmodify":1503812702,
-							   "readonly":true,
-							   "url":"./page/pagelog.html"
+							   "hidetype":true,
+							   "readonly":true
 							}							
 					]
 				}					

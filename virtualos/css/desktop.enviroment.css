@@ -57,8 +57,8 @@
 	max-height: 2em;
 	font-size:13px;
 	font-family: arial;
-	text-shadow: 2px 2px 4px rgba(70,70,70,0.5);
-	color: rgba(0,0,0,0.8);
+	text-shadow: 1px 1px 2px rgba(0,0,0,0.8), 1px -1px 2px rgba(0,0,0,0.8),-1px 1px 2px rgba(0,0,0,0.8),-1px -1px 2px rgba(0,0,0,0.8);
+	color: rgba(255,255,255,0.8);
 	word-wrap: break-word;	
 	overflow: hidden;
 	cursor: pointer;
@@ -74,7 +74,7 @@
 	line-height:1em;
 	font-size:13px;
 	font-family: arial;
-	text-shadow: 2px 2px 4px rgba(70,70,70,0.5);
+	text-shadow: 1px 1px 0px rgba(255,255,255,0.5), 1px -1px 0px rgba(255,255,255,0.5),-1px 1px 0px rgba(255,255,255,0.5),-1px -1px 0px rgba(255,255,255,0.5);
 	display:none;
 }
 
@@ -414,3 +414,52 @@ table, td, tr {padding:0;}
 	background: -moz-linear-gradient(rgba(70,70,70,0.8), rgba(50,50,50,0.8), rgba(70,70,70,0.8)); 
 	background: linear-gradient(rgba(70,70,70,0.8), rgba(50,50,50,0.8), rgba(70,70,70,0.8));
 }
+#VolumeControlDiv{
+	position:absolute;
+	bottom: 83px;
+	width: 120px; 
+	padding: 10px; 
+	background-color: rgba(0,0,0,0.7);
+	color: rgba(255,255,255,0.8);
+	text-shadow: 0px 0px 2px rgba(0,0,0,0.8);
+	font-family: arial;
+	font-size:14px;
+	text-align:center;
+	border-radius: 5px;
+	transform: rotate(270deg);
+	border: 1px solid #000;
+	z-index:4;
+}
+#SoundTaskButton:hover #VolumeControlDiv, #VolumeControlDiv:hover{
+	display: inline-block;
+}
+#DisplaySettingPanel h1{
+	font-size:24px;
+	color: #fff;
+	text-shadow: 0px 0px 2px #000, 0px 0px 10px #00f;
+}
+#DisplaySettingPanel table{
+	font-family: sans;
+	font-size:12px;
+	color: #000; 
+	font-weight:100;
+	line-height: 20px;
+}
+#DisplaySettingPanel .Display_Background_Preview{
+	position:absolute;
+	right:10px; 
+	top:10px; 
+	width:200px;
+	height:120px;
+	border:1px solid #000;
+}
+
+#DisplaySettingPanel input[type="number"] {
+    width:50px;
+}
+
+#DisplaySettingPanel select {
+    width:150px;
+}
+
+

@@ -8,6 +8,9 @@
 		Apps:{},
 		RunningApps:[],
 		FExtension:{},
+		TaskManager: {
+			id: null
+		},
 		CodeSchoolData:{},
 		Desktop:"DesktopContainer",
 		Sound: {

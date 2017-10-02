@@ -1,0 +1,51 @@
+			function ChangePreview(apply){
+				var rgb1,rgb2, cssValue, rgbaStart, rgbaEnd, degree, w1, h1, w2, h2;
+				var preview1=$(".Display_Background_Preview").eq(0);
+				var preview2=$(".Display_Background_Preview").eq(1);
+				w1=$("#"+resume.Desktop).width();
+				h1=$("#"+resume.Desktop).height();
+				w2=preview1.width();
+				h2=h1/w1*w2;	
+				preview1.height(h2);
+				preview2.height(h2);				
+				$("#Display_Screen_Size").html(screen.width+" x "+screen.height);
+				$("#Display_Window_Size").html($(document).width()+" x "+$(document).height());
+				$("#Display_Desktop_Size").html(w1+" x "+h1);
+				rgb1=$("#Display_Background_Color_Start").val().substr(1);
+				rgbaStart="rgba("+parseInt(rgb1.substr(0,2),16)+","+parseInt(rgb1.substr(2,2),16)+","+parseInt(rgb1.substr(4,2),16)+","+$("#Display_Background_Alpha_Start").val()/100+")";
+				rgb2=$("#Display_Background_Color_End").val().substr(1);
+				rgbaEnd="rgba("+parseInt(rgb2.substr(0,2),16)+","+parseInt(rgb2.substr(2,2),16)+","+parseInt(rgb2.substr(4,2),16)+","+$("#Display_Background_Alpha_End").val()/100+")";
+				degree=$("#Display_Gradient_Degree").val()+"deg";
+				
+				var backgroundImage=$('#Display_Wallpaper_List').val();
+				backgroundImage=="" ? cssValue="none" : cssValue="url('./img/background/"+backgroundImage+"')";
+				var width=$('#Display_Wallpaper_Width').val()+"%", height=$('#Display_Wallpaper_Height').val()+"%";
+				var repeat=$('#Display_Wallpaper_Repeat').val();
+				var position=$('#Display_Wallpaper_Position').val();
+				var CssObj1={
+					"background":"#3578ff;",
+					"background":"-moz-linear-gradient("+degree+",  "+rgbaStart+", "+rgbaEnd+")",
+					"background":"-webkit-gradient(linear, l"+degree+", "+rgbaStart+", "+rgbaEnd+")",
+					"background":"-webkit-linear-gradient("+degree+",  "+rgbaStart+","+rgbaEnd+")",
+					"background":"-o-linear-gradient("+degree+",  "+rgbaStart+","+rgbaEnd+")",
+					"background":"-ms-linear-gradient("+degree+",  "+rgbaStart+","+rgbaEnd+")",
+					"background":"linear-gradient("+degree+",  "+rgbaStart+","+rgbaEnd+")",
+					"filter":"progid:DXImageTransform.Microsoft.gradient( startColorstr=#"+rgb1+", endColorstr=#"+rgb2+",GradientType=1 )"				
+				}
+				
+				
+				var CssObj2={
+					"background-image": cssValue,
+					"background-size": width+" "+height,
+					"background-repeat": repeat,
+					"background-position": position
+				}
+				
+				if (apply) {
+					$(".BackgroundDiv").eq(0).css(CssObj1);
+					$(".BackgroundDiv").eq(1).css(CssObj2);
+				}else{
+					preview1.css(CssObj1);
+					preview2.css(CssObj2);		
+				}	
+			}

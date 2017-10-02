@@ -13,8 +13,9 @@ resume.Apps={
 										//build window for html viewer, change windows title, load content, make it front window and fadein
 										var AppWindowData = resume.Apps.list[AppId].window;
 										var newWindowObj = AppWindowData.full.replace("***", "resume.Apps.minimize(\""+AppId+"\",\""+id+"\");").replace("$$$", "resume.Apps.close(\""+AppId+"\",\""+id+"\");");
-										$("#"+resume.Desktop).append("<div id='"+id+"' onclick='resume.Apps.focusToWindow(\""+id+"\");'>"+newWindowObj+"</div>");
+										$("#"+resume.Desktop).append("<div id='"+id+"'>"+newWindowObj+"</div>");
 										var newWindow=$("#"+id);
+										newWindow.on("click", function(e){resume.Apps.focusToWindow(id);});
 										newWindow.find(AppWindowData.header).html(obj.name);
 										newWindow.find(AppWindowData.body).load(obj.url);
 										newWindow.fadeIn();
@@ -35,11 +36,11 @@ resume.Apps={
 					"name": "Explorer",
 					"description": "Explorer the virtual file system",
 					"window": 	{
-									"full": "<div id='FileExplorerWindow'><div class='WindowHead_Light4'><span style='text-align:left;'><b>Explorer - <span id='WindowTargetFileName'></span></b></span><div style='right:26px;' class='WindowMiniButton_Light1' onclick='***'>&#95;</div><div class='WindowMiniButton_Light1' onclick='$$$'>&#10006;</div></div><div id='FileExplorerAddressBarDiv'><input type='text' id='FileExplorerAddressBar' onfocus='this.blur()' readonly value='./thefolderpath'></div><div id='FileExplorerContent'></div></div>",		
+									"full": "<div id='MyWindow'><div class='WindowHead_Light4'><span style='text-align:left;'><b>Explorer - <span id='WindowTargetFileName'></span></b></span><div style='right:26px;' class='WindowMiniButton_Light1' onclick='***'>&#95;</div><div class='WindowMiniButton_Light1' onclick='$$$'>&#10006;</div></div><div id='MyWindowAddressBarDiv'><input type='text' id='FileExplorerAddressBar' onfocus='this.blur()' readonly value='./thefolderpath'></div><div id='MyWindowContent' style='top:61px;'></div></div>",		
 									"headerbar": ".WindowHead_Light4",
 									"header": "#WindowTargetFileName",
-									"body": "#FileExplorerContent",
-									"fulladdress": "#FileExplorerAddressBarDiv",
+									"body": "#MyWindowContent",
+									"fulladdress": "#MyWindowAddressBarDiv",
 									"upbutton": "#FileExplorerGoUp",
 									"path": "#FileExplorerAddressBar",
 									"size": { "fixed": false, "width": 700, "height": 500},
@@ -47,8 +48,9 @@ resume.Apps={
 										var AppWindowData = resume.Apps.list[AppId].window;
 										var NewPosition=resume.Apps.randomWindowPos(AppWindowData.size.width, AppWindowData.size.height);
 										var newWindowObj = AppWindowData.full.replace("***", "resume.Apps.minimize(\""+AppId+"\",\""+id+"\");").replace("$$$", "resume.Apps.close(\""+AppId+"\",\""+id+"\");");
-										$("#"+resume.Desktop).append("<div id='"+id+"' style='width:"+AppWindowData.size.width+"px;height:"+AppWindowData.size.height+"px;"+NewPosition+"' onclick='resume.Apps.focusToWindow(\""+id+"\");'>"+newWindowObj+"</div>");
+										$("#"+resume.Desktop).append("<div id='"+id+"' style='width:"+AppWindowData.size.width+"px;height:"+AppWindowData.size.height+"px;"+NewPosition+"'>"+newWindowObj+"</div>");
 										var newWindow=$("#"+id);
+										newWindow.on("click", function(e){resume.Apps.focusToWindow(id);});
 										newWindow.find(AppWindowData.header).html(obj.name);
 										newWindow.find(AppWindowData.body).load(obj.url);
 										newWindow.find(AppWindowData.headerbar).dragdrop("#"+id);
@@ -107,8 +109,9 @@ resume.Apps={
 										var AppWindowData = resume.Apps.list[AppId].window;
 										var NewPosition=resume.Apps.randomWindowPos(AppWindowData.size.width, AppWindowData.size.height);
 										var newWindowObj = AppWindowData.full.replace("***", "resume.Apps.minimize(\""+AppId+"\",\""+id+"\");").replace("$$$", "resume.Apps.close(\""+AppId+"\",\""+id+"\");");
-										$("#"+resume.Desktop).append("<div id='"+id+"' style='width:"+AppWindowData.size.width+"px;height:"+AppWindowData.size.height+"px;"+NewPosition+"' onclick='resume.Apps.focusToWindow(\""+id+"\");'>"+newWindowObj+"</div>");
+										$("#"+resume.Desktop).append("<div id='"+id+"' style='width:"+AppWindowData.size.width+"px;height:"+AppWindowData.size.height+"px;"+NewPosition+"'>"+newWindowObj+"</div>");
 										var newWindow=$("#"+id);
+										newWindow.on("click", function(e){resume.Apps.focusToWindow(id);});
 										newWindow.find(AppWindowData.header).html(obj.name);
 										newWindow.find(AppWindowData.inputline).width(AppWindowData.size.width);
 										var inputElem = newWindow.find(AppWindowData.input);
@@ -126,25 +129,25 @@ resume.Apps={
 						var thisWindow=resume.Apps.list[appId].window;
 						$("#"+TaskData[1]+" "+thisWindow.header).html(obj.name);
 						$.getJSON(obj.url, function(result){
-									var inputElem="#"+TaskData[1]+" "+thisWindow.input;
-									var contElem="#"+TaskData[1]+" "+thisWindow.body;
-									var readThis=result.text;
-									var data = {
-											"target": inputElem,
-											"container": contElem,
-											"text":readThis,
-											"delayRange": [10,100],
-											"lineEndDelay": 500,
-											"lineCommentDelay": 750,	
-											"index": 0,
-											"max": readThis.length,
-											"line": readThis[0][0],
-											"setLine": function(n){ this.line=this.text[n][0];}
-									};					
-									AutoTyper(data);
+							var inputElem="#"+TaskData[1]+" "+thisWindow.input;
+							var contElem="#"+TaskData[1]+" "+thisWindow.body;
+							var readThis=result.text;
+							var data = {
+									"target": inputElem,
+									"container": contElem,
+									"text":readThis,
+									"delayRange": [10,100],
+									"lineEndDelay": 500,
+									"lineCommentDelay": 750,	
+									"index": 0,
+									"max": readThis.length,
+									"line": readThis[0][0],
+									"setLine": function(n){ this.line=this.text[n][0];}
+							};					
+							AutoTyper(data);
 						});		
 					},
-					NewTeminalLine: function (event){
+					"NewTeminalLine": function (event){
 						if(event.keyCode == 13){
 							var thisWindow=$(event.target.parentNode.parentNode);
 							var input = thisWindow.find("#TerminalInput");
@@ -163,6 +166,170 @@ resume.Apps={
 						"maxproc":10						
 					}
 				},
+				"app_taskmanager":{
+					"name": "Task Manager",
+					"description": "Administration panel for running tasks",
+					"window": 	{
+									"full":  "<div id='TaskManagerPanel'>"+
+												"<div id='MyWindow' style='position:absolute;'><div class='WindowHead_Light4'><span style='text-align:left;'><b>System - <span id='WindowTargetFileName'></span></b></span><div style='right:26px;' class='WindowMiniButton_Light1' onclick='***'>&#95;</div><div class='WindowMiniButton_Light1' onclick='$$$'>&#10006;</div></div>"+
+												"<div class='TaskManagerHeaderRow'>"+
+													"<div class='TaskManagerCell'>Task</div>"+
+													"<div class='TaskManagerCell'>Stat</div>"+
+													"<div class='TaskManagerCell'>ID</div>"+
+													"<div class='TaskManagerCell'>Kill</div>"+
+												"</div>"+
+												"<div id='MyWindowContent' style='position:absolute; left:0px;top:61px;padding: 0;overflow-y: scroll;'>"+
+												"</div></div>"+
+											"</div>",	
+									"headerbar": ".WindowHead_Light4",
+									"header": "#WindowTargetFileName",
+									"body": "#MyWindowContent",
+									"size": { "fixed": false, "width": 500, "height": 600},
+									"build": function (obj, AppId, data, id){
+										var AppWindowData = resume.Apps.list[AppId].window;
+										var NewPosition=resume.Apps.randomWindowPos(AppWindowData.size.width, AppWindowData.size.height);
+										var newWindowObj = AppWindowData.full.replace("***", "resume.Apps.minimize(\""+AppId+"\",\""+id+"\");").replace("$$$", "resume.Apps.close(\""+AppId+"\",\""+id+"\");");
+										$("#"+resume.Desktop).append("<div id='"+id+"' style='width:"+AppWindowData.size.width+"px;height:"+AppWindowData.size.height+"px;"+NewPosition+"'>"+newWindowObj+"</div>");
+										var newWindow=$("#"+id);
+										newWindow.on("click", function(e){resume.Apps.focusToWindow(id);});
+										newWindow.fadeIn();
+										newWindow.find(AppWindowData.headerbar).dragdrop("#"+id);
+										resume.TaskManager.id=id;
+									}
+								},
+					"start": function(obj, newWindow, path, strPath){
+						var appId=resume.FExtension[obj.type];
+						var objData={vfspath:path};
+						var TaskData=resume.Apps.appToTask(obj, appId, newWindow, objData, strPath);
+						var thisWindow=resume.Apps.list[appId].window;
+						$("#"+TaskData[1]+" "+thisWindow.header).html(obj.name);
+					},
+					"taskbar": {
+						"icon":"folder",
+						"maxproc":1						
+					}
+				},	
+				"app_display":{
+					"name": "Display Settings",
+					"description": "Display panel, custumize your desktop",
+					"window": 	{
+									"full": '<div id="DisplaySettingPanel">'+
+											'<div id="MyWindow" style="position:absolute;"><div class="WindowHead_Light4"><span style="text-align:left;"><b>Settings - <span id="WindowTargetFileName"></span></b></span><div style="right:26px;" class="WindowMiniButton_Light1" onclick="***">&#95;</div><div class="WindowMiniButton_Light1" onclick="$$$">&#10006;</div></div>'+
+											'<div id="MyWindowContent" style="position:absolute; display: block; left:0px;top:32px;padding: 5px 10px;white-space:normal;">'+
+											'<h1>Informations:</h1><table>'+
+											'<tr><td>Screen Size:</td><td><span id="Display_Screen_Size">1024 x 768</span></td></tr>'+
+											'<tr><td>Window Size:</td><td><span id="Display_Window_Size">1000 x 700</span></td></tr>'+
+											'<tr><td>Desktop Size:</td><td><span id="Display_Desktop_Size">900 x 800</span></td></tr>'+
+											'<tr><td>Color:</td><td><input type="color" id="Display_Background_Color_Start" onchange="###(false);"> <input type="color" id="Display_Background_Color_End" onchange="###(false);"></td></tr>'+
+											'<tr><td>Alpha:</td><td><input type="number" min="0" max="100" value="100" id="Display_Background_Alpha_Start" onchange="###(false);"> <input type="number" min="0" max="100" value="100" id="Display_Background_Alpha_End" onchange="###(false);"></td></tr>'+
+											'<tr><td>Gradient:</td><td><input type="number" value="135" id="Display_Gradient_Degree" min="-90" max="180" onchange="###(false);"> deg</td></tr>'+
+											'<tr><td>Image:</td><td><select id="Display_Wallpaper_List" onchange="###(false);"><option value="">No image</option></select></td></tr>'+
+											'<tr><td>Position:</td><td><select id="Display_Wallpaper_Position" onchange="###(false);">'+
+												'<option value="center center">Center Center</option>'+
+												'<option value="center top">Center Top</option>'+
+												'<option value="center bottom">Center Bottom</option>'+		
+												'<option value="left top">Left Top</option>'+
+												'<option value="left center">Left Center</option>'+
+												'<option value="left bottom">Left Bottom</option>'+
+												'<option value="right top">Right Top</option>'+
+												'<option value="right center">Right Center</option>'+
+												'<option value="right bottom">Right Bottom</option>'+
+											'</select></td></tr>'+
+											'<tr><td>Size:</td><td>w: <input type="number" value="100" id="Display_Wallpaper_Width" min="0" onchange="###(false);">%, h: <input type="number" value="100" min="0" id="Display_Wallpaper_Height" onchange="###(false);">% </td></tr>'+
+											'<tr><td>Repeat:</td><td><select id="Display_Wallpaper_Repeat" onchange="###(false);">'+
+												'<option value="no-repeat">Not repeat</option>'+
+												'<option value="repeat">Repeat</option>'+
+												'<option value="repeat-x">Horizontal</option>'+
+												'<option value="repeat-y">Vertical</option>'+
+											'</select></td></tr>'+
+											'</table>'+
+											'<div class="Display_Background_Preview"></div>'+
+											'<div class="Display_Background_Preview"></div>'+
+											'<br><center><div><a href="javascript: void(0)" onclick="###(true);"><button>Apply</button></a></div></center>'+
+											'</div></div>'+
+										'</div>',		
+									"headerbar": ".WindowHead_Light4",
+									"header": "#WindowTargetFileName",
+									"body": "#MyWindowContent",
+									"size": { "fixed": false, "width": 500, "height": 400},
+									"build": function (obj, AppId, data, id){
+										var AppWindowData = resume.Apps.list[AppId].window;
+										var NewPosition=resume.Apps.randomWindowPos(AppWindowData.size.width, AppWindowData.size.height);
+										var tmp="resume.Apps.list[\'"+AppId+"\'].ChangePreview";
+										var newWindowObj = AppWindowData.full.replace("***", "resume.Apps.minimize(\'"+AppId+"\',\'"+id+"\');").replace("$$$", "resume.Apps.close(\'"+AppId+"\',\'"+id+"\');").replace(/###/g, tmp);
+										$("#"+resume.Desktop).append("<div id='"+id+"' style='width:"+AppWindowData.size.width+"px;height:"+AppWindowData.size.height+"px;"+NewPosition+"'>"+newWindowObj+"</div>");
+										var newWindow=$("#"+id);
+										newWindow.on("click", function(e){resume.Apps.focusToWindow(id);});
+										newWindow.fadeIn();
+										newWindow.find(AppWindowData.headerbar).dragdrop("#"+id);
+									}
+								},
+					"start": function(obj, newWindow, path, strPath){
+						var appId=resume.FExtension[obj.type];
+						var objData={vfspath:path};
+						var TaskData=resume.Apps.appToTask(obj, appId, newWindow, objData, strPath);
+						var thisWindow=resume.Apps.list[appId].window;
+						$("#"+TaskData[1]+" "+thisWindow.header).html(obj.name);
+						resume.Apps.list[appId].ChangePreview(false);
+					},
+					"ChangePreview": function (apply){
+						var rgb1,rgb2, cssValue, rgbaStart, rgbaEnd, degree, w1, h1, w2, h2;
+						var preview1=$(".Display_Background_Preview").eq(0);
+						var preview2=$(".Display_Background_Preview").eq(1);
+						w1=$("#"+resume.Desktop).width();
+						h1=$("#"+resume.Desktop).height();
+						w2=preview1.width();
+						h2=h1/w1*w2;	
+						preview1.height(h2);
+						preview2.height(h2);				
+						$("#Display_Screen_Size").html(screen.width+" x "+screen.height);
+						$("#Display_Window_Size").html($(document).width()+" x "+$(document).height());
+						$("#Display_Desktop_Size").html(w1+" x "+h1);
+						rgb1=$("#Display_Background_Color_Start").val().substr(1);
+						rgbaStart="rgba("+parseInt(rgb1.substr(0,2),16)+","+parseInt(rgb1.substr(2,2),16)+","+parseInt(rgb1.substr(4,2),16)+","+$("#Display_Background_Alpha_Start").val()/100+")";
+						rgb2=$("#Display_Background_Color_End").val().substr(1);
+						rgbaEnd="rgba("+parseInt(rgb2.substr(0,2),16)+","+parseInt(rgb2.substr(2,2),16)+","+parseInt(rgb2.substr(4,2),16)+","+$("#Display_Background_Alpha_End").val()/100+")";
+						degree=$("#Display_Gradient_Degree").val()+"deg";
+						
+						var backgroundImage=$('#Display_Wallpaper_List').val();
+						backgroundImage=="" ? cssValue="none" : cssValue="url('./img/background/"+backgroundImage+"')";
+						var width=$('#Display_Wallpaper_Width').val()+"%", height=$('#Display_Wallpaper_Height').val()+"%";
+						var repeat=$('#Display_Wallpaper_Repeat').val();
+						var position=$('#Display_Wallpaper_Position').val();
+						var CssObj1={
+							"background":"#3578ff;",
+							"background":"-moz-linear-gradient("+degree+",  "+rgbaStart+", "+rgbaEnd+")",
+							"background":"-webkit-gradient(linear, l"+degree+", "+rgbaStart+", "+rgbaEnd+")",
+							"background":"-webkit-linear-gradient("+degree+",  "+rgbaStart+","+rgbaEnd+")",
+							"background":"-o-linear-gradient("+degree+",  "+rgbaStart+","+rgbaEnd+")",
+							"background":"-ms-linear-gradient("+degree+",  "+rgbaStart+","+rgbaEnd+")",
+							"background":"linear-gradient("+degree+",  "+rgbaStart+","+rgbaEnd+")",
+							"filter":"progid:DXImageTransform.Microsoft.gradient( startColorstr=#"+rgb1+", endColorstr=#"+rgb2+",GradientType=1 )"				
+						}
+						
+						var CssObj2={
+							"background-image": cssValue,
+							"background-size": width+" "+height,
+							"background-repeat": repeat,
+							"background-position": position
+						}
+						
+						if (apply) {
+							$(".BackgroundDiv").eq(0).css(CssObj1);
+							$(".BackgroundDiv").eq(1).css(CssObj2);
+							//------------------------------
+							//-------------------- save display settins here if you connct with back end ------------
+							//------------------------------
+						}else{
+							preview1.css(CssObj1);
+							preview2.css(CssObj2);		
+						}	
+					},
+					"taskbar": {
+						"icon":"folder",
+						"maxproc":1						
+					}
+				},					
 				"app_link":{
 					"name": "Link",
 					"description": "Open a new window with short cut link",
@@ -250,7 +417,7 @@ resume.Apps={
 					//refresh the text for taskgroup button
 					taskbarAppButton.html(buttonLink);
 					//create a new instance object in current taskgroup
-					obj.child ? objName=obj.name : objName=obj.name+"."+obj.type;
+					obj.child || obj.hidetype ? objName=obj.name : objName=obj.name+"."+obj.type;
 					taskGroup.windows[max]={
 						"id": windowId,
 						"data": objData,
@@ -359,6 +526,7 @@ resume.Apps={
 				resume.Apps.renderTaskListwithButton();
 			}
 			$("#tsk_list_"+AppId+" ul li").eq(taskStatus[2]).remove();
+			if (resume.TaskManager.id==WindowId){resume.TaskManager.id=null;}
 			$("#"+WindowId).remove();
 		}else{
 			alert("not found");
@@ -369,6 +537,79 @@ resume.Apps={
 			//alert("exist");
 		}else{
 			//alert("not found");
+		}
+	},
+	closeApp(AppId){
+		var max=resume.RunningApps.length, maxsub, windowId;
+		for (var i=0;i<max;i++){
+			if (resume.RunningApps[i].appId==AppId){
+				maxsub=resume.RunningApps[i].windows.length;
+				for (var x=0;x<maxsub;x++){
+					windowId=resume.RunningApps[i].windows[0].id;
+					resume.Apps.close(AppId, windowId);
+				}
+				return true;
+			}
+		}	
+		return false;		
+	},	
+	"focusToWindow": function (TargetWindowId){
+		//e.stopPropagation();
+		//e.preventDefault();
+		var TaskGroupButton, TaskListButton, appId, thisWin, TaskStatus, AppName;
+		$("#TaskManagerPanel #MyWindowContent").html("");
+		if (resume.Apps.lastApp.focus != TargetWindowId){
+			var max=resume.RunningApps.length, maxsub, winId, win;
+			for (var i=0;i<max;i++){
+				AppId=resume.RunningApps[i].appId;
+				AppName=resume.Apps.list[AppId].name;
+				maxsub=resume.RunningApps[i].windows.length;
+				if (resume.TaskManager.id){
+					$("#"+resume.TaskManager.id+" #MyWindowContent").append('<div class="TaskManagerRow">'+
+					'<div class="TaskManagerCell">'+AppName+'</div>'+
+					'<div class="TaskManagerCell">Group</div>'+
+					'<div class="TaskManagerCell">'+i+'</div>'+
+					'<div class="TaskManagerCell"><div class="WindowMiniButton_Light12" onclick="resume.Apps.closeApp(\''+AppId+'\');">&#10006;</div></div>'
+					);
+				}
+				TaskGroupButton=$("#tsk_btn_"+AppId+" #taskButtonLink");
+				if (TaskGroupButton.hasClass('TaskBarHighlighted')) {TaskGroupButton.removeClass("TaskBarHighlighted");}
+				for (var x=0;x<maxsub;x++){
+					TaskListButton=$("#tsk_list_"+AppId+" li").eq(x);
+					thisWin = resume.RunningApps[i].windows[x];
+					winId = thisWin.id;
+					win = $("#"+winId);
+					if (winId==TargetWindowId) {
+						win.css("z-index", "3");
+						resume.RunningApps[i].currentWindow=x;
+						//highligt the active taskgroup and task list button
+						TaskListButton.addClass("TaskBarHighlighted");
+						TaskGroupButton.addClass("TaskBarHighlighted");
+						//change the task group button text to current task button text and remove/readd click event for avoid the bug
+						TaskGroupButton.off();
+						TaskGroupButton.html(TaskListButton.find("a").html());
+						TaskGroupButton.on("click", {appId:AppId}, function(event){
+							var id=event.data.appId;
+							$("#tsk_list_"+id).toggle();
+							resume.Apps.lastApp.id=id;
+							resume.Apps.lastApp.popUp=true;				
+						});
+						TaskStatus="Focused";
+					}else{
+						if (TaskListButton.hasClass('TaskBarHighlighted')) {TaskListButton.removeClass("TaskBarHighlighted");}
+						win.css("z-index", "2");
+						thisWin.minimize===true ? TaskStatus="Minimized" : TaskStatus="Background"
+					}
+					if (resume.TaskManager.id){
+						$("#"+resume.TaskManager.id+" #MyWindowContent").append('<div class="TaskManagerRow">'+
+						'<div class="TaskManagerCell"> &#187; '+AppName+": "+thisWin.name+'</div>'+
+						'<div class="TaskManagerCell">'+TaskStatus+'</div>'+
+						'<div class="TaskManagerCell">'+x+'</div>'+
+						'<div class="TaskManagerCell"><div class="WindowMiniButton_Light12" onclick="resume.Apps.close(\''+AppId+'\',\''+winId+'\');">&#10006;</div></div>'
+						);
+					}
+				}
+			}	
 		}
 	},
 	"randomWindowPos": function (width, height){
@@ -393,43 +634,7 @@ resume.Apps={
 				break;
 		}
 		return "";
-	},
-	"focusToWindow": function (TargetWindowId){
-		var TaskGroupButton, TaskListButton, appId;
-		if (resume.Apps.lastApp.focus != TargetWindowId){
-			var max=resume.RunningApps.length, maxsub, winId, win;
-			for (var i=0;i<max;i++){
-				AppId=resume.RunningApps[i].appId;
-				TaskGroupButton=$("#tsk_btn_"+AppId+" #taskButtonLink");
-				maxsub=resume.RunningApps[i].windows.length;
-				if (TaskGroupButton.hasClass('TaskBarHighlighted')) {TaskGroupButton.removeClass("TaskBarHighlighted");}
-				for (var x=0;x<maxsub;x++){
-					TaskListButton=$("#tsk_list_"+AppId+" li").eq(x);
-					winId=resume.RunningApps[i].windows[x].id;
-					win = $("#"+winId);
-					if (winId==TargetWindowId) {
-						win.css("z-index", "3");
-						resume.RunningApps[i].currentWindow=x;
-						//highligt the active taskgroup and task list button
-						TaskListButton.addClass("TaskBarHighlighted");
-						TaskGroupButton.addClass("TaskBarHighlighted");
-						//change the task group button text to current task button text and remove/readd click event for avoid the bug
-						TaskGroupButton.off();
-						TaskGroupButton.html(TaskListButton.find("a").html());
-						TaskGroupButton.on("click", {appId:AppId}, function(event){
-							var id=event.data.appId;
-							$("#tsk_list_"+id).toggle();
-							resume.Apps.lastApp.id=id;
-							resume.Apps.lastApp.popUp=true;				
-						});								
-					}else{
-						if (TaskListButton.hasClass('TaskBarHighlighted')) {TaskListButton.removeClass("TaskBarHighlighted");}
-						win.css("z-index", "2");
-					}
-				}
-			}	
-		}
-	},
+	},	
 	"restore": function (AppId, WindowId){
 		var selectedWindow=$("#"+WindowId);
 		var taskStatus=resume.Apps.findTask(AppId, ["id", WindowId]);
@@ -480,7 +685,7 @@ $.fn.dragdrop = function (el) {
         var relX = e.pageX - $(el).offset().left;
         var relY = e.pageY - $(el).offset().top;
         var maxX = $('body').width() - $(el).width() - 10;
-        var maxY = $('body').height() - $(el).height() - 10;
+        var maxY = $('body').height() - $(el).height() - 50;
         $(document).bind('mousemove', function (e) {
             var diffX = Math.min(maxX, Math.max(0, e.pageX - relX));
             var diffY = Math.min(maxY, Math.max(0, e.pageY - relY));
