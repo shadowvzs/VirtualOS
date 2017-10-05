@@ -101,7 +101,7 @@
 					"type":"dir",
 					"child":[
 								{
-								   "name": "I want learn...",
+								   "name": "My goal!",
 								   "id":"Plan1",
 								   "description": "I want to be... a... What?",
 								   "icon":"file",
@@ -138,7 +138,7 @@
 									"type":"dir",
 									"child":[
 												{
-												   "name": "Ubuntu Commands #1",
+												   "name": "Ubuntu: File System",
 												   "id":"Ubuntu_1",
 												   "description": "Several usefull command",
 												   "icon":"shell",
@@ -146,10 +146,46 @@
 												   "createtime":1503812702,
 												   "lastmodify":1503812702,
 												   "readonly":false,
-												   "url":"./page/git.sh"
+												   "url":"./page/ubuntu_1_filesystem.sh"
+												},
+												{
+												   "name": "Ubuntu: Advanced",
+												   "id":"Ubuntu_2",
+												   "description": "Several usefull command",
+												   "icon":"shell",
+												   "type":"shell",
+												   "createtime":1503812702,
+												   "lastmodify":1503812702,
+												   "readonly":false,
+												   "url":"./page/ubuntu_2_advanced.sh"
 												}
 									]
 								},
+								{
+									"name": "PHP",
+									"id": "TS_PHP",
+									"description": "My php collection",
+									"icon":"folder",
+									"readonly":false,
+									"onstartmenu": true,
+									"createtime":1503812702,
+									"lastmodify":1503812702,
+									"type":"dir",
+									"child":[
+												{
+												   "name": "CURL & Mailerlite",
+												   "id":"PHP_1",
+												   "description": "CURL  put, post, get, delete with mailerlite groups",
+												   "icon":"file",
+												   "type":"html",
+												   "createtime":1503812702,
+												   "lastmodify":1503812702,
+												   "readonly":false,
+												   "onstartmenu": true,
+												   "url":"./page/php_1_curl.html"												   
+												}
+									]
+								},								
 								{
 									"name": "Git",
 									"id": "TS_Git",
@@ -162,7 +198,7 @@
 									"type":"dir",
 									"child":[
 												{
-												   "name": "Git Basics #1",
+												   "name": "Git: Start",
 												   "id":"Git_1",
 												   "description": "Basics, how to start the git",
 												   "icon":"shell",
@@ -170,8 +206,52 @@
 												   "createtime":1503812702,
 												   "lastmodify":1503812702,
 												   "readonly":false,
-												   "url":"./page/git.sh"
-												}
+												   "url":"./page/git_1_basics.sh"
+												},
+												{
+												   "name": "Git: List & Log",
+												   "id":"Git_2",
+												   "description": "Basics, how to list or show stuffs",
+												   "icon":"shell",
+												   "type":"shell",
+												   "createtime":1503812702,
+												   "lastmodify":1503812702,
+												   "readonly":false,
+												   "url":"./page/git_2_list_log.sh"
+												},
+												{
+												   "name": "Git: Up & Down",
+												   "id":"Git_3",
+												   "description": "Basics, how to pull, push, clone, delete",
+												   "icon":"shell",
+												   "type":"shell",
+												   "createtime":1503812702,
+												   "lastmodify":1503812702,
+												   "readonly":false,
+												   "url":"./page/git_3_get_put.sh"
+												},												
+												{
+												   "name": "Git: Branch",
+												   "id":"Git_4",
+												   "description": "Basics, how to use branches",
+												   "icon":"shell",
+												   "type":"shell",
+												   "createtime":1503812702,
+												   "lastmodify":1503812702,
+												   "readonly":false,
+												   "url":"./page/git_4_branch.sh"
+												},
+												{
+												   "name": "Git: Tag",
+												   "id":"Git_5",
+												   "description": "Basics, how to use tags",
+												   "icon":"shell",
+												   "type":"shell",
+												   "createtime":1503812702,
+												   "lastmodify":1503812702,
+												   "readonly":false,
+												   "url":"./page/git_5_tag.sh"
+												}													
 									]
 								}								
 							]  
@@ -210,7 +290,7 @@
 								   "lastmodify":1503812702,
 								   "readonly":false,
 								   "onstartmenu": true,
-								   "url":"./page/rest.html"
+								   "url":"./page/resthobby.html"
 								}								
 							]  
 			   },
@@ -315,7 +395,7 @@
 								   "url":"./page/about.html"
 								},
 								{
-									"name": "Abou 5",
+									"name": "Sub folder",
 									"id": "TS_Aboutsd",
 									"description": "More info about the page.",
 									"icon":"folder",
@@ -326,7 +406,7 @@
 									"type":"dir",
 									"child":[
 												{
-													"name": "Abou 523",
+													"name": "Deep folder",
 													"id": "TS_Abouts1d",
 													"description": "More info about the page.",
 													"icon":"folder",
@@ -337,7 +417,7 @@
 													"child":[]
 												},
 												{
-												   "name": "AboutDEEp",
+												   "name": "About aswell",
 												   "id":"About1ssf",
 												   "description": "How it was wrote and few information about page",
 												   "icon":"file",

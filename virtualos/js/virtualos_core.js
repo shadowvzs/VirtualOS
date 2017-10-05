@@ -8,6 +8,8 @@
 		Apps:{},
 		RunningApps:[],
 		FExtension:{},
+		FullScreen: false,
+		WallpaperList:{},
 		TaskManager: {
 			id: null
 		},
@@ -79,7 +81,12 @@
 			$.getJSON("./db/f_ext.json", function(result){
 				resume.FExtension=result;
 			});
-		},		
+		},	
+		LoadWallpaperList:function(){
+			$.getJSON("./db/wallpapers.json", function(result){
+				resume.WallpaperList=result.list;
+			});
+		},			
 		LoadFileSystem:function(){
 			$.getJSON("./db/vfs.json", function(result){
 				resume.Database=result.child;
@@ -130,7 +137,57 @@
 				}
 			});
 		},
-		
+		TaskScrollLeft: function (x){
+			var e=$('#taskGroupListContDiv');
+			var curX=e.scrollLeft();
+			var newX=curX+x;
+			var w=e.prop("scrollWidth") - e.width();
+			var sign="+";
+			if (newX<0){
+				curX > 0 ? x = -curX : x = 0 		
+				$("#TaskBarArrow1").hide();
+			}else if (newX>w){
+				curX < w ? x = w - curX : x = 0 
+				 $("#TaskBarArrow2").hide();
+			}
+			if (x!=0){
+				newX > 0 ? $("#TaskBarArrow1").show() : $("#TaskBarArrow1").hide()
+				newX < w ? $("#TaskBarArrow2").show() : $("#TaskBarArrow2").hide()
+				x < 0 ? sign="-" : null
+				x=Math.abs(x);
+				e.animate({ 
+					scrollLeft: sign+'='+x
+				}, 800);			
+			}
+		},
+		ToggleFullScreen: function (){
+			//var fullscreenEnabled = document.fullscreenEnabled || document.mozFullScreenEnabled || document.webkitFullscreenEnabled;
+			//alert(fullscreenEnabled);
+			var icon=$("#SM_FullScreenIcon");
+			if (resume.FullScreen===true){
+				if(document.exitFullscreen) {
+					document.exitFullscreen();
+				} else if(document.mozCancelFullScreen) {
+					document.mozCancelFullScreen();
+				} else if(document.webkitExitFullscreen) {
+					document.webkitExitFullscreen();
+				}	
+				icon.attr('src','./img/startmenu/fullscreen_1.png');
+			}else{
+				e=document.documentElement;
+				if(e.requestFullscreen) {
+					e.requestFullscreen();
+				} else if(e.mozRequestFullScreen) {
+					e.mozRequestFullScreen();
+				} else if(e.webkitRequestFullscreen) {
+					e.webkitRequestFullscreen();
+				} else if(e.msRequestFullscreen) {
+					e.msRequestFullscreen();
+				}
+				icon.attr('src','./img/startmenu/fullscreen_2.png');
+			}
+			resume.FullScreen===true ? resume.FullScreen=false : resume.FullScreen=true
+		},		
 		IconNameInputShowChange: function($obj){
 			var inp=$obj.find("input");
 			$obj.find("span").hide();
@@ -231,6 +288,7 @@
 		},
 		SystemInit:function(){
 			resume.LoadFileExtensionList();
+			resume.LoadWallpaperList();
 			resume.LoadFileSystem();	
 			resume.LoadApps();			
 			resume.startClock();

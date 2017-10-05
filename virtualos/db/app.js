@@ -262,6 +262,12 @@ resume.Apps={
 										newWindow.on("click", function(e){resume.Apps.focusToWindow(id);});
 										newWindow.fadeIn();
 										newWindow.find(AppWindowData.headerbar).dragdrop("#"+id);
+										
+										var max=resume.WallpaperList.length;
+										var sel=newWindow.find("#Display_Wallpaper_List");
+										for (var i=0;i<max;i++){
+											sel.append($('<option>', {value: resume.WallpaperList[i][1],text: resume.WallpaperList[i][0]}));
+										}
 									}
 								},
 					"start": function(obj, newWindow, path, strPath){
@@ -361,6 +367,13 @@ resume.Apps={
 			taskbarAppList.offset({left: taskbarAppButton.offset().left});	
 			taskbarAppList.width(taskbarAppButton.width());
 		}
+		var e=$('#taskGroupListContDiv');
+		if ((e.prop("scrollWidth") - e.width())>0){
+			$("#TaskBarArrow2").show();
+		}else{
+			$("#TaskBarArrow1").hide();
+			$("#TaskBarArrow2").hide();
+		}
 	},
 	
 	"appToTask": function (obj, appId, newWindow, objData, path){
@@ -391,7 +404,7 @@ resume.Apps={
 				"windows":[]
 			};			
 			//create ui - create Button on taskbar 
-			$("#TaskBar td").eq(1).append("<a id='tsk_btn_"+appId+"' title='"+buttonLabel+"'>"+buttonLink+"</a>");
+			$("#taskGroupListContDiv").append("<a id='tsk_btn_"+appId+"' title='"+buttonLabel+"'>"+buttonLink+"</a>");
 			//create list div for running tasks in this task group
 			$("#TaskBar_TaskGroup_TaskList_Container").append("<div id='tsk_list_"+appId+"' class='TaskBar_TaskGroup_TaskList'><ul> </ul></div>");
 		}
@@ -681,7 +694,9 @@ resume.Apps={
 };
 
 $.fn.dragdrop = function (el) {
+	
     this.bind('mousedown', function (e) {
+		resume.Apps.focusToWindow(el.substr(1));
         var relX = e.pageX - $(el).offset().left;
         var relY = e.pageY - $(el).offset().top;
         var maxX = $('body').width() - $(el).width() - 10;
@@ -743,6 +758,19 @@ AutoTyper = function (data) {
 		}						
 	})(data);
 };
-/*
-
-*/
+	/*
+	//this is a array sort after a class from object
+	function dynamicSort(property) {
+		var sortOrder = 1;
+		if(property[0] === "-") {
+			sortOrder = -1;
+			property = property.substr(1);
+		}
+		return function (a,b) {
+			var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+			return result * sortOrder;
+		}
+	}
+	
+	obj.sort(dynamicSort("objclass"));
+	*/

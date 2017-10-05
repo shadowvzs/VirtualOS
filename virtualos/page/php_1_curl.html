@@ -1,0 +1,122 @@
+<html><head></head><body>
+<span style="font-family:cursive;font-size:40px;	background: -webkit-linear-gradient(rgba(200,200,200,0.8), rgba(50,50,50,0.8));	-webkit-background-clip: text;	-webkit-text-fill-color: transparent;"><b>PHP Curl</b></span><br>
+<br><br>
+<center>
+<div style='display:table-cell;text-align:left;'>
+	<center>
+	<div style='display:table-cell;text-align:left;'>
+		This example is about how to use curl with mailer lite<br>
+		Header and body data sending<br><br>
+		<code>
+&lt;?php
+$ApiKey="b83dbb72539185c994f5d1d6dcf8e008";
+
+function GetGroups(){
+	global $ApiKey;
+	$curl = curl_init();
+	curl_setopt_array($curl, array(
+	CURLOPT_URL => "https://api.mailerlite.com/api/v2/groups",
+	CURLOPT_RETURNTRANSFER => true,
+	CURLOPT_ENCODING => "",
+	CURLOPT_MAXREDIRS => 10,
+	CURLOPT_TIMEOUT => 30,
+	CURLOPT_USERAGENT => 'Mozilla/5.0',
+	CURLOPT_VERBOSE => false,
+	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+	CURLOPT_CUSTOMREQUEST => "GET",
+	CURLOPT_HTTPHEADER => array(
+		"content-type: application/json",
+		"x-mailerlite-apikey: {$ApiKey}"
+	)
+	));
+
+	$response = curl_exec($curl);
+	$err = curl_error($curl);
+
+	curl_close($curl);	
+	return $response;
+}
+
+function CreateGroup($name){
+	global $ApiKey;
+	$curl = curl_init();
+	curl_setopt_array($curl, array(
+	CURLOPT_URL => "https://api.mailerlite.com/api/v2/groups",
+	CURLOPT_RETURNTRANSFER => true,
+	CURLOPT_ENCODING => "",
+	CURLOPT_MAXREDIRS => 10,
+	CURLOPT_TIMEOUT => 30,
+	CURLOPT_USERAGENT => 'Mozilla/5.0',
+	CURLOPT_VERBOSE => false,
+	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+	CURLOPT_CUSTOMREQUEST => "POST",
+	CURLOPT_POSTFIELDS => "{\"name\":\"".$name."\"}",
+	CURLOPT_HTTPHEADER => array(
+		"content-type: application/json",
+		"x-mailerlite-apikey: {$ApiKey}"
+	)
+	));
+
+	$response = curl_exec($curl);
+	$err = curl_error($curl);
+
+	curl_close($curl);	
+	return $response;
+}
+
+function DeleteGroup($id){
+	global $ApiKey;
+	$curl = curl_init();
+	curl_setopt_array($curl, array(
+	CURLOPT_URL => ("https://api.mailerlite.com/api/v2/groups/{$id}"),
+	CURLOPT_RETURNTRANSFER => true,
+	CURLOPT_HEADER => false,
+	CURLOPT_MAXREDIRS => 10,
+	CURLOPT_TIMEOUT => 30,
+	CURLOPT_USERAGENT => 'Mozilla/5.0',
+	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+	CURLOPT_CUSTOMREQUEST => "DELETE",
+	CURLOPT_HTTPHEADER => array(
+		"content-type: application/json",
+		"x-mailerlite-apikey: {$ApiKey}"
+	)
+	));
+
+	$response = curl_exec($curl);
+	$err = curl_error($curl);
+
+	curl_close($curl);	
+	return $response;
+}
+
+function RenameGroup($name, $id){
+	$data = array (
+		"name" => $name
+	);
+	global $ApiKey;
+	$curl = curl_init();
+	curl_setopt_array($curl, array(
+	CURLOPT_URL => "https://api.mailerlite.com/api/v2/groups/{$id}",
+	CURLOPT_RETURNTRANSFER => true,
+	CURLOPT_HEADER => false,
+	CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+	CURLOPT_CUSTOMREQUEST => "PUT",
+	CURLOPT_POSTFIELDS => json_encode($data),
+	CURLOPT_HTTPHEADER => array(
+		"content-type: application/json",
+		"x-mailerlite-apikey: {$ApiKey}"
+	)
+	));
+
+	$response = curl_exec($curl);
+	$err = curl_error($curl);
+
+	curl_close($curl);	
+	return $response;
+}
+?&gt;
+		</code>
+	</div></center>
+</div></center>
+</body>
+</html>

@@ -56,85 +56,6 @@ body{
 	top:0px;
 	bottom:0px;
 }
-.BackgroundDiv{
-	position:fixed;
-	top:0px;left:0px;right:0px;bottom:0px;
-	background-image:url('./img/background/bg3.jpg');
-	background-size: cover;
-	z-index:-1;
-}
-.TaskManagerHeaderRow{
-	display:table-row; 
-	position:absolute;
-	top:32px;
-	right:2px;
-	left:2px;
-	padding: 0 1px;
-	line-height:30px;
-	font-family: arial;
-	font-size: 14px;
-	color: rgba(0,0,0,1);
-	background-color:#fff; 
-	background: -webkit-linear-gradient(#fff, #eee);
-	background: -o-linear-gradient(#fff, #eee);
-	background: -moz-linear-gradient(#fff, #eee);
-	background: linear-gradient(#fff, #ccc);
-}
-.TaskManagerRow{
-	line-height:20px;
-	font-family: arial;
-	font-size: 14px;
-	color: rgba(70,70,70,0.7);
-	display: table-row;
-	width: 100%;
-	border:1px dotted transparent;
-}
-
-.TaskManagerRow:hover{
-	border:1px dotted rgba(70,70,70,0.7);
-	color: rgba(0,0,0,0.9);
-	background-color: rgba(255,255,200,0.7);
-	cursor: pointer;
-}
-
-.TaskManagerCell{
-	display:table-cell; 
-	padding: 0 5px;
-	overflow: hidden;
-	text-overflow: ellipsis;
-}
-.TaskManagerCell:nth-child(4n+1){
-	width:100%;
-}
-.TaskManagerCell:nth-child(4n+2){
-	white-space: nowrap;
-	min-width: 100px; 
-	max-width: 50px;
-	border-left:1px dotted rgba(70,70,70,0.5);
-}
-.TaskManagerCell:nth-child(4n+3){
-	white-space: nowrap;
-	min-width: 30px; 
-	max-width: 30px;
-	border-left:1px dotted rgba(70,70,70,0.5);
-}
-.TaskManagerCell:nth-child(4n+4){
-	white-space: nowrap;
-	min-width: 20px; 
-	max-width: 20px;
-	border-left:1px dotted rgba(70,70,70,0.5);
-}
-
-.TaskManagerHeaderRow .TaskManagerCell:nth-child(4){
-	min-width: 35px; 
-	max-width: 35px;
-}
-.TaskManagerClose{
-	display: inline;
-	position: absolute;
-	
-	
-}
 </style>
 	</head>
 <body>
@@ -159,7 +80,7 @@ body{
 				<span class="BBF">Base:</span> HTML, PHP, CSS, JS, MySQL<br>
 				<span class="BBF">Subs:</span> JQuery<br>
 				<span class="BBF">Tools:</span> Github, Ubuntu server<br>
-				<span class="BBF">Interest:</span> NodeJS<br>
+				<span class="BBF">Interest:</span> NodeJS or any fun<br>
 			</div>
 		</div>
 	</div>
@@ -173,19 +94,21 @@ body{
 			<a title="Show/Hide my profile"><div class="TaskBarHighlightable" id="SM_AboutMe" onclick="$('#ProfilPicDiv').fadeToggle();" style="vertical-align:middle;display:inline-block;"><img src="./img/startmenu/mini_me.jpg" id="SM_AboutMeIcon"></div></a> 
 			<a title="Show/Hide settings"><div class="TaskBarHighlightable" id="SM_Settings" style="vertical-align:middle;display:inline-block;"><img src="./img/startmenu/settings.png" id="SM_SettingsIcon"></div></a> 
 			<a title="Sound settings"><div class="TaskBarHighlightable" id="SM_Sound" onclick='$("#VolumeControlDiv").show();resume.Sound.Visible=true;' style="vertical-align:middle;display:inline-block;"><img src="./img/startmenu/soundon.png" id="SM_SoundIcon"></div></a>
+			<a title="Full Screen mode"><div class="TaskBarHighlightable" id="SM_FullScreen" onclick="resume.ToggleFullScreen();" style="vertical-align:middle;display:inline-block;"><img src="./img/startmenu/fullscreen_1.png" id="SM_FullScreenIcon"></div></a>
 			<div id="VolumeControlDiv">
 				Volume: <span id="VolumeAmount">100%</span><br>
 				<input type="range" min="0" max="100" value="20" step="5" style="width: 100px;" onchange='resume.SetVolume($(this));' id="VolumeInputBar">
 			</div>	
-			<span id="TaskBarSeparator"></span> 
-		</td><td> <!-- here put jQuery the app buttons in taskbar -->
+			<span id="TaskBarSeparator"></span> <span id="TaskBarArrow1" class="TaskBarHighlightable" onclick="resume.TaskScrollLeft(-100);">&#171;</span>
+		</td><td><div id="taskGroupListDiv"><div id="taskGroupListContDiv"> <!-- here put jQuery the app buttons in taskbar -->  </div></div>
 		</td><td>
 		<div id="TaskBarRightSide">
+		<span id="TaskBarArrow2" class="TaskBarHighlightable" onclick="resume.TaskScrollLeft(100);">&#187;</span>
+		<span id="TaskBarSeparator"></span>
 			<div class="TaskBarHighlightable" id="TaskTimeDate" onmouseover="$('#TimeDateTooltip').fadeIn();" onmouseleave="$('#TimeDateTooltip').fadeOut();"> 00:00</div>
 		</div>
 		</td></tr></table>
 	</div>
-	
 	<div id="TaskBar_StartMenuDiv" onmouseenter="if (resume.StartMenuUp){resume.MouseInStartMenu=true;};" onmouseleave="if (resume.StartMenuUp){resume.MouseInStartMenu=false;};">
 		<div id="TaskBar_StartMenuHeadLineDiv"><span>Welcome on board!</span></div>
 		<div id="TaskBar_StartMenuItemListDiv">
@@ -201,32 +124,9 @@ body{
 	</div>
 </div>
 <script>
-
-	/*
-	//this is a array sort after a class from object
-	function dynamicSort(property) {
-		var sortOrder = 1;
-		if(property[0] === "-") {
-			sortOrder = -1;
-			property = property.substr(1);
-		}
-		return function (a,b) {
-			var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
-			return result * sortOrder;
-		}
-	}
-	
-	obj.sort(dynamicSort("objclass"));
-	*/
-	//var t=window.navigator;
-	//platform oscpu appCodeName
-	//
-//alert(JSON.stringify(t.vendor));
 	$(document).ready(function(){
 		resume.SystemInit();
 	});
-
-
 </script>
 </body>
 </html>

@@ -9,6 +9,16 @@
 	border:1px inset rgba(100,100,100,0.3);
 }
 
+code{
+	white-space: pre;
+	font-family: monospace;
+	background-color: rgba(255,255,200,0.7);
+	display: table-cell;
+	padding: 10px 50px;
+	border-radius: 1em;
+	border: 1px inset rgba(0,0,0,0.8);
+}
+
 .ImageFrame{
 	position:relative;
 	height: 207px;
