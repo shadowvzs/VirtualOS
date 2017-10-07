@@ -220,7 +220,7 @@ resume.Apps={
 											'<tr><td>Screen Size:</td><td><span id="Display_Screen_Size">1024 x 768</span></td></tr>'+
 											'<tr><td>Window Size:</td><td><span id="Display_Window_Size">1000 x 700</span></td></tr>'+
 											'<tr><td>Desktop Size:</td><td><span id="Display_Desktop_Size">900 x 800</span></td></tr>'+
-											'<tr><td>Color:</td><td><input type="color" id="Display_Background_Color_Start" onchange="###(false);"> <input type="color" id="Display_Background_Color_End" onchange="###(false);"></td></tr>'+
+											'<tr><td>Color:</td><td><input type="color" id="Display_Background_Color_Start" onchange="###(false);" value="#0000FF"> <input type="color" id="Display_Background_Color_End" onchange="###(false);" value="#FFFFFF"></td></tr>'+
 											'<tr><td>Alpha:</td><td><input type="number" min="0" max="100" value="100" id="Display_Background_Alpha_Start" onchange="###(false);"> <input type="number" min="0" max="100" value="100" id="Display_Background_Alpha_End" onchange="###(false);"></td></tr>'+
 											'<tr><td>Gradient:</td><td><input type="number" value="135" id="Display_Gradient_Degree" min="-90" max="180" onchange="###(false);"> deg</td></tr>'+
 											'<tr><td>Image:</td><td><select id="Display_Wallpaper_List" onchange="###(false);"><option value="">No image</option></select></td></tr>'+
@@ -242,6 +242,7 @@ resume.Apps={
 												'<option value="repeat-x">Horizontal</option>'+
 												'<option value="repeat-y">Vertical</option>'+
 											'</select></td></tr>'+
+											'<tr><td>Opacity:</td><td><input type="number" min="0" max="100" value="100" id="Display_Background_Image_Opacity" onchange="###(false);"> %</td></tr>'+
 											'</table>'+
 											'<div class="Display_Background_Preview"></div>'+
 											'<div class="Display_Background_Preview"></div>'+
@@ -302,6 +303,7 @@ resume.Apps={
 						var width=$('#Display_Wallpaper_Width').val()+"%", height=$('#Display_Wallpaper_Height').val()+"%";
 						var repeat=$('#Display_Wallpaper_Repeat').val();
 						var position=$('#Display_Wallpaper_Position').val();
+						var opacity=$('#Display_Background_Image_Opacity').val()/100;
 						var CssObj1={
 							"background":"#3578ff;",
 							"background":"-moz-linear-gradient("+degree+",  "+rgbaStart+", "+rgbaEnd+")",
@@ -317,7 +319,8 @@ resume.Apps={
 							"background-image": cssValue,
 							"background-size": width+" "+height,
 							"background-repeat": repeat,
-							"background-position": position
+							"background-position": position,
+							"opacity": opacity
 						}
 						
 						if (apply) {

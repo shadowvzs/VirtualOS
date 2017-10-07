@@ -94,7 +94,7 @@
 					"description": "What i want in future? Check this folder!",
 					"icon":"folder",
 					"readonly":false,
-					"ondesktop": false,
+					"ondesktop": true,
 					"onstartmenu": true,
 					"createtime":1503812702,
 					"lastmodify":1503812702,
@@ -109,6 +109,7 @@
 								   "createtime":1503812702,
 								   "lastmodify":1503812702,
 								   "readonly":false,
+								   "ondesktop": true,
 								   "onstartmenu": true,
 								   "url":"./page/plans.html"
 								}
@@ -185,7 +186,58 @@
 												   "url":"./page/php_1_curl.html"												   
 												}
 									]
-								},								
+								},
+								{
+									"name": "CSS3",
+									"id": "TS_CSS3",
+									"description": "My CSS collection",
+									"icon":"folder",
+									"readonly":false,
+									"onstartmenu": true,
+									"createtime":1503812702,
+									"lastmodify":1503812702,
+									"type":"dir",
+									"child":[
+												{
+												   "name": "Helpful links",
+												   "id":"CSS_1",
+												   "description": "CSS shapes, pseudo element etc",
+												   "icon":"file",
+												   "type":"html",
+												   "createtime":1503812702,
+												   "lastmodify":1503812702,
+												   "readonly":false,
+												   "onstartmenu": true,
+												   "url":"./page/css.html"												   
+												}
+									]							
+								},
+								{
+									"name": "JS",
+									"id": "TS_JS",
+									"description": "My javascript collection",
+									"icon":"folder",
+									"readonly":false,
+									"onstartmenu": true,
+									"createtime":1503812702,
+									"lastmodify":1503812702,
+									"type":"dir",
+									"child":[
+												{
+												   "name": "Few links",
+												   "id":"JS_1",
+												   "description": "Usefull functions",
+												   "icon":"file",
+												   "type":"html",
+												   "createtime":1503812702,
+												   "lastmodify":1503812702,
+												   "readonly":false,
+												   "onstartmenu": true,
+												   "url":"./page/javascript.html"												   
+												}
+									]							
+								},		
+								
 								{
 									"name": "Git",
 									"id": "TS_Git",
@@ -371,67 +423,18 @@
 							]  
 				},
 				{
-					"name": "About",
-					"id": "TS_About",
-					"description": "More info about the page.",
-					"icon":"folder",
-					"readonly":false,
-					"ondesktop": true,
-					"onstartmenu": true,
-					"createtime":1503812702,
-					"lastmodify":1503812702,
-					"type":"dir",
-					"child":[
-								{
-								   "name": "About the page",
-								   "id":"About1",
-								   "description": "How it was wrote and few information about page",
-								   "icon":"file",
-								   "type":"html",
-								   "createtime":1503812702,
-								   "lastmodify":1503812702,
-								   "readonly":false,
-								   "onstartmenu": true,
-								   "url":"./page/about.html"
-								},
-								{
-									"name": "Sub folder",
-									"id": "TS_Aboutsd",
-									"description": "More info about the page.",
-									"icon":"folder",
-									"readonly":false,
-									"onstartmenu": true,
-									"createtime":1503812702,
-									"lastmodify":1503812702,
-									"type":"dir",
-									"child":[
-												{
-													"name": "Deep folder",
-													"id": "TS_Abouts1d",
-													"description": "More info about the page.",
-													"icon":"folder",
-													"readonly":false,
-													"createtime":1503812702,
-													"lastmodify":1503812702,
-													"type":"dir",
-													"child":[]
-												},
-												{
-												   "name": "About aswell",
-												   "id":"About1ssf",
-												   "description": "How it was wrote and few information about page",
-												   "icon":"file",
-												   "type":"html",
-												   "createtime":1503812702,
-												   "lastmodify":1503812702,
-												   "readonly":false,
-												   "url":"./page/about.html"
-												}
-											]  
-								}
-							]  
-				},
-				{
+				   "name": "Terminal",
+				   "id":"TS_Terminal",
+				   "description": "Typing for fun",
+				   "icon":"shell",
+				   "type":"shell",
+				   "createtime":1503812702,
+				   "lastmodify":1503812702,
+				   "readonly":false,
+				   "ondesktop": true,
+				   "onstartmenu": false,
+				   "url":"./page/empty.html"
+				},					{
 				   "name": "Log File",
 				   "id":"TS_PageLog",
 				   "description": "Changes on page was loged here",

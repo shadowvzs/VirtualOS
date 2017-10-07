@@ -226,9 +226,10 @@
 				item.readonly ? tooltip+="readonly" : tooltip+="writeable"
 				item.child ? tooltip+="&#013;Content: &nbsp;"+item.child.length+" file(s) or folder(s)&#013;" : null;
 				tooltip+="&#013;Created at: "+resume.GetDateFromTimestamp(item.createtime)+"&#013;Modified at: "+resume.GetDateFromTimestamp(item.lastmodify);
+				
 				targetContainer.append("<div id='"+item.id+"_DE' class='DesktopIconBox'><a title='"+tooltip+"' data-path='{\"ItemPath\":\""+ItemPath1+ItemPath2+"\",\"newWindow\":"+newWindow+"}' onclick='resume.FileExplorerNav($(this));'><div class='DesktopIconImgBox'><img src='./img/desktop/"+item.icon+".png'></div></a><a title='"+item.name+"'><div class='DesktopIconTextBox'><input type='text' maxlength='24' value='"+item.name+"' onfocusout='resume.IconNameChangeSave($(this).parent());'><span onclick='resume.IconNameInputShowChange($(this).parent());'>"+item.name+"</span></div></a></div>");
 				$( "#"+item.id+"_DE" ).contextmenu(function() {
-					alert( "Handler for .contextmenu() called." );
+					alert( "Handler for .contextmenu() called for icon." );
 				});		
 			};
 		},
@@ -316,7 +317,10 @@
 					$("#VolumeControlDiv").hide();
 				}				
 				
-			});					
+			});		
+			setTimeout(function() {
+				$("#DesktopLoading").remove();
+			}, 1000);			
 		}
 	};
 	
